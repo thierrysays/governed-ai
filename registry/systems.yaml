@@ -1,0 +1,12 @@
+# AI systems and use cases. risk_class follows the EU AI Act tiers: unacceptable | high | limited | minimal.
+# Classification of a real system must be justified in docs/governance/system-register.md.
+systems:
+  - id: example-internal-assistant
+    synthetic: true
+    status: candidate
+    risk_class: limited
+    owner: business-unit
+    accountable: to-be-assigned
+    human_oversight: required
+    models: [example-small-model]
+    tools: [example-read-tool]

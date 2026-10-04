@@ -1,0 +1,12 @@
+# Tools and MCP servers an agent may call. Status values: candidate | approved | suspended | retired.
+tools:
+  - id: example-read-tool
+    synthetic: true
+    status: candidate
+    irreversible: false
+    owner: ai-platform
+  - id: example-write-tool
+    synthetic: true
+    status: candidate
+    irreversible: true
+    owner: ai-platform

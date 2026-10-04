@@ -1,0 +1,10 @@
+# Models approved for routing. Status values: candidate | approved | suspended | retired.
+# Entries marked synthetic are illustrations only.
+models:
+  - id: example-small-model
+    synthetic: true
+    status: candidate
+    hosting_region: eu
+    allowed_data_classes: [public]
+    owner: ai-platform
+    evaluation_ref: evals/README.md
