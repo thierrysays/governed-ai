@@ -9,7 +9,8 @@ OK_MODEL = {"id": "m", "status": "candidate", "owner": "o", "hosting_region": "e
             "allowed_data_classes": ["public"]}
 OK_TOOL = {"id": "t", "status": "candidate", "owner": "o", "irreversible": False}
 OK_SYSTEM = {"id": "s", "status": "candidate", "owner": "o", "risk_class": "limited",
-             "human_oversight": "required", "models": ["m"], "tools": ["t"]}
+             "human_oversight": "required", "allowed_data_classes": ["public"],
+             "models": ["m"], "tools": ["t"]}
 
 
 def test_repository_registry_is_valid():
@@ -69,3 +70,41 @@ def test_unknown_references_rejected():
     errors = v.check_systems([bad], [OK_MODEL], [OK_TOOL])
     assert any("unknown model" in e for e in errors)
     assert any("unknown tool" in e for e in errors)
+
+
+def test_system_data_classes_required_and_known():
+    assert any("allowed_data_classes" in e for e in v.check_systems(
+        [{**OK_SYSTEM, "allowed_data_classes": []}], [OK_MODEL], [OK_TOOL]))
+    assert any("unknown data class" in e for e in v.check_systems(
+        [{**OK_SYSTEM, "allowed_data_classes": ["secret"]}], [OK_MODEL], [OK_TOOL]))
+
+
+def test_approved_system_requires_a_model():
+    bad = {**OK_SYSTEM, "status": "approved", "accountable": "x", "models": []}
+    assert any("without any model" in e for e in v.check_systems([bad], [OK_MODEL], [OK_TOOL]))
+
+
+OK_CASE = {"id": "c", "category": "data_leakage", "system": "s", "synthetic": True,
+           "prompt": "p", "expected_behaviour": "refuse"}
+
+
+def test_valid_eval_case_passes():
+    assert v.check_evals([OK_CASE], [OK_SYSTEM]) == []
+
+
+def test_eval_case_invalid_category_rejected():
+    assert any("invalid category" in e for e in v.check_evals([{**OK_CASE, "category": "x"}], [OK_SYSTEM]))
+
+
+def test_eval_case_unknown_system_rejected():
+    assert any("unknown system" in e for e in v.check_evals([{**OK_CASE, "system": "ghost"}], [OK_SYSTEM]))
+
+
+def test_eval_case_must_be_synthetic():
+    assert any("synthetic" in e for e in v.check_evals([{**OK_CASE, "synthetic": False}], [OK_SYSTEM]))
+
+
+def test_eval_case_missing_fields_and_duplicates_rejected():
+    errors = v.check_evals([{**OK_CASE, "prompt": ""}, OK_CASE, OK_CASE], [OK_SYSTEM])
+    assert any("missing prompt" in e for e in errors)
+    assert any("duplicate" in e for e in errors)

@@ -20,7 +20,7 @@ def load(path: Path, key: str) -> list[dict]:
     return items
 
 
-def check_common(kind: str, items: list[dict]) -> list[str]:
+def check_ids(kind: str, items: list[dict]) -> list[str]:
     errors, seen = [], set()
     for item in items:
         ident = item.get("id")
@@ -30,6 +30,13 @@ def check_common(kind: str, items: list[dict]) -> list[str]:
         if ident in seen:
             errors.append(f"{kind}: duplicate id {ident}")
         seen.add(ident)
+    return errors
+
+
+def check_common(kind: str, items: list[dict]) -> list[str]:
+    errors = check_ids(kind, items)
+    for item in items:
+        ident = item.get("id", "?")
         if item.get("status") not in STATUS:
             errors.append(f"{kind} {ident}: invalid status {item.get('status')!r}")
         if not item.get("owner"):
@@ -71,12 +78,19 @@ def check_systems(systems: list[dict], models: list[dict], tools: list[dict]) ->
             errors.append(f"system {ident}: invalid risk_class {s.get('risk_class')!r}")
         if s.get("human_oversight") not in OVERSIGHT:
             errors.append(f"system {ident}: invalid human_oversight {s.get('human_oversight')!r}")
+        classes = s.get("allowed_data_classes")
+        if not isinstance(classes, list) or not classes:
+            errors.append(f"system {ident}: allowed_data_classes must be a non-empty list")
+        elif not set(classes) <= DATA_CLASSES:
+            errors.append(f"system {ident}: unknown data class in {classes}")
         if s.get("risk_class") == "unacceptable" and s.get("status") == "approved":
             errors.append(f"system {ident}: unacceptable risk cannot be approved")
         if s.get("risk_class") == "high" and s.get("human_oversight") != "required":
             errors.append(f"system {ident}: high risk requires human_oversight 'required'")
         if s.get("status") == "approved" and s.get("accountable") in (None, "", "to-be-assigned"):
             errors.append(f"system {ident}: approved without an accountable person")
+        if s.get("status") == "approved" and not s.get("models"):
+            errors.append(f"system {ident}: approved without any model")
         for ref in s.get("models", []):
             if ref not in model_ids:
                 errors.append(f"system {ident}: unknown model {ref}")
@@ -86,11 +100,34 @@ def check_systems(systems: list[dict], models: list[dict], tools: list[dict]) ->
     return errors
 
 
+EVAL_CATEGORIES = {"prompt_injection", "data_leakage", "out_of_scope", "grounding", "oversight"}
+
+
+def check_evals(cases: list[dict], systems: list[dict]) -> list[str]:
+    errors = check_ids("eval case", cases)
+    system_ids = {s.get("id") for s in systems}
+    for c in cases:
+        ident = c.get("id", "?")
+        if c.get("category") not in EVAL_CATEGORIES:
+            errors.append(f"eval case {ident}: invalid category {c.get('category')!r}")
+        if c.get("system") not in system_ids:
+            errors.append(f"eval case {ident}: unknown system {c.get('system')!r}")
+        if c.get("synthetic") is not True:
+            errors.append(f"eval case {ident}: must be marked synthetic: true")
+        for field in ("prompt", "expected_behaviour"):
+            if not c.get(field):
+                errors.append(f"eval case {ident}: missing {field}")
+    return errors
+
+
 def validate(root: Path) -> list[str]:
     models = load(root / "registry/models.yaml", "models")
     tools = load(root / "registry/tools.yaml", "tools")
     systems = load(root / "registry/systems.yaml", "systems")
-    return check_models(models) + check_tools(tools) + check_systems(systems, models, tools)
+    errors = check_models(models) + check_tools(tools) + check_systems(systems, models, tools)
+    for path in sorted((root / "evals").glob("*/cases.yaml")):
+        errors += check_evals(load(path, "cases"), systems)
+    return errors
 
 
 def main() -> int:

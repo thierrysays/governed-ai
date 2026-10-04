@@ -17,4 +17,9 @@ La source de vérité machine est `registry/systems.yaml`. Ce document porte la 
 | Conditions de suspension | Déclencheurs et procédure |
 
 ## Systèmes enregistrés
-Aucun système réel. L'entrée `example-internal-assistant` du registre est synthétique.
+
+| Identifiant | Statut | Classe | Fiche |
+|---|---|---|---|
+| `internal-assistant` | candidate | limited | `use-cases/internal-assistant.md`, ADR 0003 |
+
+L'entrée `example-internal-assistant` du registre est synthétique.

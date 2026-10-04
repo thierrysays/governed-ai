@@ -1,5 +1,6 @@
 # AI systems and use cases. risk_class follows the EU AI Act tiers: unacceptable | high | limited | minimal.
 # Classification of a real system must be justified in docs/governance/system-register.md.
+# allowed_data_classes: ceiling for the system, intersected with each model's own clearance by policies/routing.rego.
 systems:
   - id: example-internal-assistant
     synthetic: true
@@ -8,5 +9,18 @@ systems:
     owner: business-unit
     accountable: to-be-assigned
     human_oversight: required
+    allowed_data_classes: [public]
     models: [example-small-model]
     tools: [example-read-tool]
+
+  # First real use case. Candidate: not approvable until an accountable person, a model and an evaluation exist.
+  # Justification: docs/governance/use-cases/internal-assistant.md, decision: docs/adr/0003.
+  - id: internal-assistant
+    status: candidate
+    risk_class: limited
+    owner: to-be-assigned
+    accountable: to-be-assigned
+    human_oversight: sampling
+    allowed_data_classes: [public, internal]
+    models: []
+    tools: []
