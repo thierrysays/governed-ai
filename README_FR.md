@@ -37,3 +37,7 @@ Chaque document existe en anglais (`nom.md`) et en français (`nom_FR.md`). `mak
 ## Licence
 
 Code : Apache License 2.0 (`LICENSE`). Documents et données : Creative Commons Attribution 4.0 International (`LICENSE-docs.txt`). Périmètre, formulation de l'attribution et réserve sur les marques : `LICENSING_FR.md`.
+
+## Contribution
+
+Les contributions sont bienvenues selon le processus de `CONTRIBUTING_FR.md` : signature de chaque commit (DCO), deux versions linguistiques, `make check` au vert.

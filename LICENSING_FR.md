@@ -29,7 +29,7 @@ Toutes les données de ce dépôt sont synthétiques. Aucune donnée client, don
 
 ## Contributions
 
-Aucun processus de contribution n'est ouvert pour l'instant. Une contribution n'est acceptée que si son auteur accepte de la placer sous les licences ci-dessus (Apache-2.0 pour le code, CC BY 4.0 pour les documents et les données).
+Une contribution n'est acceptée que si son auteur accepte de la placer sous les licences ci-dessus (Apache-2.0 pour le code, CC BY 4.0 pour les documents et les données) et signe chaque commit (DCO). Le processus est décrit dans `CONTRIBUTING_FR.md`.
 
 ## Statut
 

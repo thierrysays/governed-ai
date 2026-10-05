@@ -126,7 +126,7 @@ def check_evals(cases: list[dict], systems: list[dict]) -> list[str]:
 
 
 EXEMPT_DOCS = {"CLAUDE.md"}
-SKIP_DIRS = {".git", ".venv", ".pytest_cache", "__pycache__"}
+SKIP_DIRS = {".git", ".github", ".venv", ".pytest_cache", "__pycache__"}  # .github: single-file templates read by GitHub
 
 
 def structure(text: str) -> dict:

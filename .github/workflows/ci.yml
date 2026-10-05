@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -18,3 +20,6 @@ jobs:
           version: 1.4.2
       - run: make setup
       - run: make check
+      - name: DCO sign-off
+        if: github.event_name == 'pull_request'
+        run: .venv/bin/python tools/check_dco.py "origin/${{ github.base_ref }}..HEAD"

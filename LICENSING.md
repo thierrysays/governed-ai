@@ -29,7 +29,7 @@ All data in this repository is synthetic. No client data, personal data, credent
 
 ## Contributions
 
-No contribution process is open yet. A contribution is accepted only if its author agrees to license it under the terms above (Apache-2.0 for code, CC BY 4.0 for documents and data).
+A contribution is accepted only if its author agrees to license it under the terms above (Apache-2.0 for code, CC BY 4.0 for documents and data) and signs off every commit (DCO). The process is in `CONTRIBUTING.md`.
 
 ## Status
 
