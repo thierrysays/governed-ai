@@ -2,6 +2,10 @@
 
 French version: `CHANGELOG_FR.md`.
 
+## 0.6.3
+
+- `SECURITY.md` and `SECURITY_FR.md`: GitHub private vulnerability reporting, now enabled on the repository, is the primary reporting channel (with the form link); email stays as the fallback. Open question 8 updated.
+
 ## 0.6.2
 
 - CI: `open-policy-agent/setup-opa` replaced by a pinned download of the OPA 1.4.2 binary with SHA-256 verification (the checksum matches the one published with the release). This removes the last Node.js 20 deprecation warning and the dependency on a third-party action. Bumping OPA now means updating `OPA_VERSION` and `OPA_SHA256` together.
