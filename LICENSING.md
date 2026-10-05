@@ -21,7 +21,7 @@ When you reuse documents or data, credit the author and link to the licence. Sug
 
 ## Third-party material
 
-Standards, regulations and vendor documents are cited, not reproduced. Their texts belong to their publishers. Do not add third-party text to this repository without checking that its licence is compatible.
+The Code of Conduct is the Contributor Covenant 2.1, adapted as stated in the file and licensed CC BY 4.0. Standards, regulations and vendor documents are cited, not reproduced. Their texts belong to their publishers. Do not add third-party text to this repository without checking that its licence is compatible.
 
 ## Data
 

@@ -40,4 +40,4 @@ Code : Apache License 2.0 (`LICENSE`). Documents et données : Creative Common
 
 ## Contribution
 
-Les contributions sont bienvenues selon le processus de `CONTRIBUTING_FR.md` : signature de chaque commit (DCO), deux versions linguistiques, `make check` au vert.
+Les contributions sont bienvenues selon le processus de `CONTRIBUTING_FR.md` : signature de chaque commit (DCO), deux versions linguistiques, `make check` au vert. Les participants respectent le code de conduite (`CODE_OF_CONDUCT_FR.md`). Problèmes de sécurité : voir `SECURITY_FR.md`.

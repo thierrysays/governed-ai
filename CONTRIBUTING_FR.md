@@ -4,7 +4,7 @@ English version: `CONTRIBUTING.md`.
 
 ## Avant de commencer
 
-Ce dépôt est une mise en œuvre de référence entretenue par un seul propriétaire. Les contributions sont bienvenues et examinées à la discrétion du propriétaire, sans engagement de délai de réponse. Ouvrez un ticket avant de commencer tout ce qui dépasse une correction, afin de convenir d'abord de la direction. Beaucoup de documents sont encore des brouillons (voir la section Statut de `README_FR.md`).
+Ce dépôt est une mise en œuvre de référence entretenue par un seul propriétaire. Les contributions sont bienvenues et examinées à la discrétion du propriétaire, sans engagement de délai de réponse. Ouvrez un ticket avant de commencer tout ce qui dépasse une correction, afin de convenir d'abord de la direction. Beaucoup de documents sont encore des brouillons (voir la section Statut de `README_FR.md`). En participant, vous vous engagez à respecter le code de conduite (`CODE_OF_CONDUCT_FR.md`). Signalez les problèmes de sécurité en privé, comme décrit dans `SECURITY_FR.md`, jamais dans un ticket public.
 
 ## Ce qui est bienvenu
 

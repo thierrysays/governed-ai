@@ -21,7 +21,7 @@ Lorsque vous réutilisez des documents ou des données, citez l'auteur et indiqu
 
 ## Contenus de tiers
 
-Les normes, règlements et documents d'éditeurs sont cités, pas reproduits. Leurs textes appartiennent à leurs éditeurs. N'ajoutez aucun texte de tiers à ce dépôt sans vérifier que sa licence est compatible.
+Le code de conduite est le Contributor Covenant 2.1, adapté comme indiqué dans le fichier et placé sous licence CC BY 4.0. Les normes, règlements et documents d'éditeurs sont cités, pas reproduits. Leurs textes appartiennent à leurs éditeurs. N'ajoutez aucun texte de tiers à ce dépôt sans vérifier que sa licence est compatible.
 
 ## Données
 
