@@ -1,6 +1,8 @@
 # governed-ai
 
-Reference implementation of a governed AI platform: a vendor-neutral control plane (identity, gateway, routing, tools, evaluation, audit) driven by policies as code and a versioned registry. Private repository, synthetic data only (see `NOTICE.md`). French version: `README_FR.md`.
+English | [Français](README_FR.md)
+
+Reference implementation of a governed AI platform: a vendor-neutral control plane (identity, gateway, routing, tools, evaluation, audit) driven by policies as code and a versioned registry. Private repository, synthetic data only (see `NOTICE.md`).
 
 ## Principle
 

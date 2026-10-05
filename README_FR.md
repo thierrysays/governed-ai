@@ -1,6 +1,8 @@
 # governed-ai
 
-Mise en œuvre de référence d'une plateforme d'IA gouvernée : un plan de contrôle sans dépendance à un fournisseur (identité, gateway, routage, outils, évaluation, audit), piloté par des politiques en code et un registre versionné. Dépôt privé, données synthétiques uniquement (voir `NOTICE_FR.md`). English version: `README.md`.
+[English](README.md) | Français
+
+Mise en œuvre de référence d'une plateforme d'IA gouvernée : un plan de contrôle sans dépendance à un fournisseur (identité, gateway, routage, outils, évaluation, audit), piloté par des politiques en code et un registre versionné. Dépôt privé, données synthétiques uniquement (voir `NOTICE_FR.md`).
 
 ## Principe
 
