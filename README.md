@@ -8,7 +8,7 @@ Normative governance (policy, risk classification, responsibilities) is defined 
 
 ## Bilingual rule
 
-Every document exists in English (`name.md`) and in French (`name_FR.md`). `make validate` fails when one of the pair is missing. Registry entries carry `name_en` and `name_fr`; evaluation cases carry both languages.
+Every document exists in English (`name.md`) and in French (`name_FR.md`). `make validate` fails when one of the pair is missing, or when the two versions differ in structure (heading levels, table rows and columns, code blocks). Registry entries carry `name_en` and `name_fr`; evaluation cases carry both languages.
 
 | Directory | Role |
 |---|---|

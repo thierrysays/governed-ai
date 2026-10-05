@@ -141,3 +141,45 @@ def test_missing_french_document_rejected(tmp_path):
 def test_missing_english_document_rejected(tmp_path):
     (tmp_path / "a_FR.md").write_text("fr")
     assert any("missing English counterpart" in e for e in v.check_bilingual_docs(tmp_path))
+
+
+DOC_EN = "# Title\n\n## Part\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n```\ncode\n```\n"
+DOC_FR = "# Titre\n\n## Partie\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n```\ncode\n```\n"
+
+
+def test_structure_ignores_text_and_code_content():
+    assert v.check_structure_pair("a.md", DOC_EN, DOC_FR) == []
+    assert v.structure("```\n# not a heading\n| x |\n```\n")["heading levels"] == []
+
+
+def test_structure_detects_missing_heading():
+    errors = v.check_structure_pair("a.md", DOC_EN, DOC_FR.replace("## Partie\n\n", ""))
+    assert any("heading levels" in e for e in errors)
+
+
+def test_structure_detects_heading_level_change():
+    errors = v.check_structure_pair("a.md", DOC_EN, DOC_FR.replace("## Partie", "### Partie"))
+    assert any("heading levels" in e for e in errors)
+
+
+def test_structure_detects_missing_table():
+    no_table = DOC_FR.replace("| a | b |\n|---|---|\n| 1 | 2 |\n\n", "")
+    assert any("tables" in e for e in v.check_structure_pair("a.md", DOC_EN, no_table))
+
+
+def test_structure_detects_table_row_or_column_difference():
+    extra_row = DOC_FR.replace("| 1 | 2 |\n", "| 1 | 2 |\n| 3 | 4 |\n")
+    extra_col = DOC_FR.replace("| a | b |\n|---|---|\n| 1 | 2 |", "| a | b | c |\n|---|---|---|\n| 1 | 2 | 3 |")
+    assert any("tables" in e for e in v.check_structure_pair("a.md", DOC_EN, extra_row))
+    assert any("tables" in e for e in v.check_structure_pair("a.md", DOC_EN, extra_col))
+
+
+def test_structure_detects_missing_code_block():
+    no_code = DOC_FR.replace("```\ncode\n```\n", "")
+    assert any("code blocks" in e for e in v.check_structure_pair("a.md", DOC_EN, no_code))
+
+
+def test_structure_mismatch_reported_by_directory_check(tmp_path):
+    (tmp_path / "a.md").write_text(DOC_EN)
+    (tmp_path / "a_FR.md").write_text(DOC_FR.replace("## Partie\n\n", ""))
+    assert any("heading levels" in e for e in v.check_bilingual_docs(tmp_path))

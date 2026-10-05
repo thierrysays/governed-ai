@@ -127,6 +127,44 @@ EXEMPT_DOCS = {"CLAUDE.md"}
 SKIP_DIRS = {".git", ".venv", ".pytest_cache", "__pycache__"}
 
 
+def structure(text: str) -> dict:
+    """Skeleton of a Markdown document: heading levels, table shapes, fenced blocks."""
+    headings, tables, fences = [], [], 0
+    in_fence, rows = False, []
+
+    def close_table():
+        if rows:
+            tables.append((len(rows), len(rows[0].strip().strip("|").split("|"))))
+            rows.clear()
+
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("```"):
+            close_table()
+            in_fence = not in_fence
+            fences += 0 if in_fence else 1
+            continue
+        if in_fence:
+            continue
+        if stripped.startswith("|"):
+            rows.append(stripped)
+            continue
+        close_table()
+        if line.startswith("#"):
+            headings.append(len(line) - len(line.lstrip("#")))
+    close_table()
+    return {"heading levels": headings, "tables (rows, columns)": tables, "code blocks": fences}
+
+
+def check_structure_pair(rel: str, english: str, french: str) -> list[str]:
+    en, fr = structure(english), structure(french)
+    return [
+        f"document {rel}: {kind} differ between EN {en[kind]} and FR {fr[kind]}"
+        for kind in en
+        if en[kind] != fr[kind]
+    ]
+
+
 def check_bilingual_docs(root: Path) -> list[str]:
     """Every English `name.md` needs a French `name_FR.md`, and the reverse."""
     errors = []
@@ -142,6 +180,10 @@ def check_bilingual_docs(root: Path) -> list[str]:
             twin = path.with_name(path.stem + "_FR.md")
             if not twin.exists():
                 errors.append(f"document {rel}: missing French counterpart {twin.name}")
+            else:
+                errors += check_structure_pair(
+                    str(rel), path.read_text(encoding="utf-8"), twin.read_text(encoding="utf-8")
+                )
     return errors
 
 

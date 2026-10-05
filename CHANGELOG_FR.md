@@ -2,6 +2,10 @@
 
 English version: `CHANGELOG.md`.
 
+## 0.3.1
+
+- Comparaison de structure entre les versions anglaise et française de chaque document : mêmes niveaux de titres, mêmes formes de tableaux (lignes et colonnes), même nombre de blocs de code. Un écart fait échouer `make validate`.
+
 ## 0.3.0
 
 - Dépôt bilingue : chaque document existe en anglais (`nom.md`) et en français (`nom_FR.md`) ; les entrées du registre portent `name_en` et `name_fr` ; les cas d'évaluation portent les deux langues. `make validate` contrôle la parité des documents et les champs bilingues.

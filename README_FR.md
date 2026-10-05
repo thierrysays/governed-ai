@@ -8,7 +8,7 @@ La gouvernance normative (politique, classification des risques, responsabilité
 
 ## Règle de bilinguisme
 
-Chaque document existe en anglais (`nom.md`) et en français (`nom_FR.md`). `make validate` échoue si l'un des deux manque. Les entrées du registre portent `name_en` et `name_fr` ; les cas d'évaluation portent les deux langues.
+Chaque document existe en anglais (`nom.md`) et en français (`nom_FR.md`). `make validate` échoue si l'un des deux manque, ou si les deux versions diffèrent par leur structure (niveaux de titres, lignes et colonnes des tableaux, blocs de code). Les entrées du registre portent `name_en` et `name_fr` ; les cas d'évaluation portent les deux langues.
 
 | Répertoire | Rôle |
 |---|---|
