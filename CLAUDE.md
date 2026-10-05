@@ -24,7 +24,7 @@ Governed AI reference platform. Owner: Thierry Sayegh-Sauvage. Public repository
 - `CONTRIBUTING.md` and `CONTRIBUTING_FR.md` define the process; commits need a `Signed-off-by` line (DCO) checked in CI on pull requests; the owner is exempt (`.github/dco-exempt.txt`). Never add a `Signed-off-by` line on someone's behalf: the certification is personal.
 - Never set a model, tool or system to `approved`, and never merge a pull request, unless the owner explicitly asks.
 
-- `SECURITY.md` and `CODE_OF_CONDUCT.md` name the dedicated role addresses security@glossolalie.pro and conduct@glossolalie.pro as the reporting contacts: never change or add a contact address without the owner's decision.
+- `SECURITY.md` and `CODE_OF_CONDUCT.md` name conduct@glossolalie.pro as the single reporting contact (security@glossolalie.pro is not in use): never change or add a contact address without the owner's decision.
 
 ## Git
 - Branch per topic; commit prefixes `policy:`, `registry:`, `docs:`, `tools:`, `infra:`, `eval:`.

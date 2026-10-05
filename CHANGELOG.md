@@ -2,6 +2,10 @@
 
 French version: `CHANGELOG_FR.md`.
 
+## 0.6.5
+
+- `SECURITY` (EN/FR) now names conduct@glossolalie.pro, the only address in service, instead of security@glossolalie.pro. A separate security address stays an open point (open question 8).
+
 ## 0.6.4
 
 - Contacts: `SECURITY` and `CODE_OF_CONDUCT` (EN/FR) now name the dedicated role addresses security@glossolalie.pro and conduct@glossolalie.pro instead of the owner's personal address. Open question 8 updated. Deliverability of both mailboxes is to be confirmed by the owner.

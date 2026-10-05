@@ -19,7 +19,7 @@ The following are out of scope: opinions on the content of governance documents 
 
 ## How to report
 
-Do not open a public issue. Use GitHub private vulnerability reporting: open the Security tab of this repository and choose "Report a vulnerability", or go to https://github.com/thierrysays/governed-ai/security/advisories/new. Only the owner sees the report. If you cannot use GitHub, send it to security@glossolalie.pro instead. Write in English or French and include the affected file or rule, steps to reproduce (a failing input is ideal) and the impact you see.
+Do not open a public issue. Use GitHub private vulnerability reporting: open the Security tab of this repository and choose "Report a vulnerability", or go to https://github.com/thierrysays/governed-ai/security/advisories/new. Only the owner sees the report. If you cannot use GitHub, send it to conduct@glossolalie.pro instead. Write in English or French and include the affected file or rule, steps to reproduce (a failing input is ideal) and the impact you see.
 
 ## What to expect
 

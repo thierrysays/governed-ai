@@ -2,6 +2,10 @@
 
 English version: `CHANGELOG.md`.
 
+## 0.6.5
+
+- `SECURITY` (anglais et français) indique désormais conduct@glossolalie.pro, la seule adresse en service, à la place de security@glossolalie.pro. Une adresse de sécurité distincte reste un point ouvert (question ouverte 8).
+
 ## 0.6.4
 
 - Contacts : `SECURITY` et `CODE_OF_CONDUCT` (anglais et français) indiquent désormais les adresses dédiées par rôle security@glossolalie.pro et conduct@glossolalie.pro à la place de l'adresse personnelle du propriétaire. Question ouverte 8 mise à jour. La réception effective des deux boîtes reste à confirmer par le propriétaire.
