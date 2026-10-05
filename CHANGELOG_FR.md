@@ -2,6 +2,10 @@
 
 English version: `CHANGELOG.md`.
 
+## 0.6.4
+
+- Contacts : `SECURITY` et `CODE_OF_CONDUCT` (anglais et français) indiquent désormais les adresses dédiées par rôle security@glossolalie.pro et conduct@glossolalie.pro à la place de l'adresse personnelle du propriétaire. Question ouverte 8 mise à jour. La réception effective des deux boîtes reste à confirmer par le propriétaire.
+
 ## 0.6.3
 
 - `SECURITY.md` et `SECURITY_FR.md` : le signalement privé de vulnérabilités de GitHub, désormais activé sur le dépôt, devient le canal principal (avec le lien du formulaire) ; le courriel reste la solution de repli. Question ouverte 8 mise à jour.

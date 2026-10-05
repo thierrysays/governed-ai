@@ -2,6 +2,10 @@
 
 French version: `CHANGELOG_FR.md`.
 
+## 0.6.4
+
+- Contacts: `SECURITY` and `CODE_OF_CONDUCT` (EN/FR) now name the dedicated role addresses security@glossolalie.pro and conduct@glossolalie.pro instead of the owner's personal address. Open question 8 updated. Deliverability of both mailboxes is to be confirmed by the owner.
+
 ## 0.6.3
 
 - `SECURITY.md` and `SECURITY_FR.md`: GitHub private vulnerability reporting, now enabled on the repository, is the primary reporting channel (with the form link); email stays as the fallback. Open question 8 updated.
