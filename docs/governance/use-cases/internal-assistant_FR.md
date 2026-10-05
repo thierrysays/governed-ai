@@ -1,6 +1,6 @@
 # Cas d'usage 1 : assistant interne
 
-Statut : instruction en cours. Identifiant registre : `internal-assistant` (statut `candidate`). Décision de classification : ADR 0003.
+Statut : instruction en cours. Identifiant registre : `internal-assistant` (statut `candidate`). Décision de classification : ADR 0003. Dossier d'instruction : `internal-assistant-dossier_FR.md`.
 
 ## Finalité
 Assister les collaborateurs dans des tâches de rédaction, de synthèse et de recherche dans la documentation interne. L'assistant ne prend ni ne recommande aucune décision individuelle concernant une personne.

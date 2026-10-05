@@ -49,7 +49,7 @@ def check_common(kind: str, items: list[dict]) -> list[str]:
     return errors
 
 
-def check_models(models: list[dict]) -> list[str]:
+def check_models(models: list[dict], root: Path | None = None) -> list[str]:
     errors = check_common("model", models)
     for m in models:
         ident = m.get("id", "?")
@@ -62,6 +62,9 @@ def check_models(models: list[dict]) -> list[str]:
             errors.append(f"model {ident}: unknown data class in {classes}")
         if m.get("status") == "approved" and not m.get("evaluation_ref"):
             errors.append(f"model {ident}: approved without evaluation_ref")
+        ref = m.get("evaluation_ref")
+        if ref and root is not None and not (root / ref).is_file():
+            errors.append(f"model {ident}: evaluation_ref {ref} does not exist")
     return errors
 
 
@@ -209,7 +212,7 @@ def validate(root: Path) -> list[str]:
     models = load(root / "registry/models.yaml", "models")
     tools = load(root / "registry/tools.yaml", "tools")
     systems = load(root / "registry/systems.yaml", "systems")
-    errors = check_models(models) + check_tools(tools) + check_systems(systems, models, tools)
+    errors = check_models(models, root) + check_tools(tools) + check_systems(systems, models, tools)
     for path in sorted((root / "evals").glob("*/cases.yaml")):
         errors += check_evals(load(path, "cases"), systems)
     return errors + check_bilingual_docs(root) + check_licensing(root)

@@ -2,6 +2,10 @@
 
 English version: `CHANGELOG.md`.
 
+## 0.7.0
+
+- Dossier d'instruction de l'assistant interne (`internal-assistant-dossier_FR.md`, anglais et français) : statut des six conditions d'approbation (aucune entièrement remplie), décisions attendues du propriétaire, questions de cadrage pour le DPO, registre qualitatif des risques, critères d'admission d'un modèle sans dépendance à un fournisseur, protocole d'évaluation, projet de notice aux utilisateurs, prochaines étapes. Aucune personne, aucun modèle, aucun seuil ni aucune citation juridique n'est inventé. `make validate` vérifie désormais que le `evaluation_ref` d'un modèle désigne un fichier existant.
+
 ## 0.6.5
 
 - `SECURITY` (anglais et français) indique désormais conduct@glossolalie.pro, la seule adresse en service, à la place de security@glossolalie.pro. Une adresse de sécurité distincte reste un point ouvert (question ouverte 8).
