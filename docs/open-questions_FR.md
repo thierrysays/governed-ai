@@ -8,3 +8,4 @@ Points à trancher par le propriétaire. Aucun n'est résolu dans le code. Engli
 4. Citations juridiques exactes pour l'EU AI Act, le RGPD et les règles sectorielles applicables au premier cas d'usage : à prendre dans les textes officiels, pas dans ce dépôt.
 5. Seuils d'évaluation et critères d'arrêt : aucune valeur chiffrée n'est fixée ici ; elle doit venir de l'évaluation de risque du premier cas d'usage.
 6. Relecture des textes français et anglais par l'auteur : les deux versions sont rédigées en parallèle et doivent être relues en paire avant tout usage externe.
+7. Licence du dépôt public (décidé : le dépôt reste public). Reste ouvert : conserver « tous droits réservés » ou choisir des licences pour le code et les documents (ADR 0004, proposé).

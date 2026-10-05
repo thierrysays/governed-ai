@@ -2,7 +2,11 @@
 
 English | [Français](README_FR.md)
 
-Reference implementation of a governed AI platform: a vendor-neutral control plane (identity, gateway, routing, tools, evaluation, audit) driven by policies as code and a versioned registry. Private repository, synthetic data only (see `NOTICE.md`).
+Reference implementation of a governed AI platform: a vendor-neutral control plane (identity, gateway, routing, tools, evaluation, audit) driven by policies as code and a versioned registry. Public repository, all rights reserved, synthetic data only (see `NOTICE.md`).
+
+## Status
+
+Work in progress. Documents marked draft or proposed are not approved policy, not legal advice and not an attestation of conformity with ISO/IEC 42001, the NIST AI RMF, the EU AI Act or any other text. Legal citations are deliberately absent until verified against the official texts. No licence is granted (see `NOTICE.md`).
 
 ## Principle
 

@@ -2,6 +2,10 @@
 
 French version: `CHANGELOG_FR.md`.
 
+## 0.3.2
+
+- The repository is public: removed the "private" statements, `NOTICE.md` now states "all rights reserved, no licence granted", README gains a Status section (drafts are not approved policy, legal advice or attestations of conformity), and ADR 0004 (proposed) records the licensing options.
+
 ## 0.3.1
 
 - Structure comparison between the English and French versions of each document: same heading levels, same table shapes (rows and columns), same number of code blocks. Mismatches fail `make validate`.

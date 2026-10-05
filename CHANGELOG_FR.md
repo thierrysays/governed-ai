@@ -2,6 +2,10 @@
 
 English version: `CHANGELOG.md`.
 
+## 0.3.2
+
+- Le dépôt est public : suppression des mentions « privé », `NOTICE_FR.md` indique désormais « tous droits réservés, aucune licence accordée », le README gagne une section Statut (les brouillons ne sont ni une politique approuvée, ni un avis juridique, ni une attestation de conformité) et l'ADR 0004 (proposé) consigne les options de licence.
+
 ## 0.3.1
 
 - Comparaison de structure entre les versions anglaise et française de chaque document : mêmes niveaux de titres, mêmes formes de tableaux (lignes et colonnes), même nombre de blocs de code. Un écart fait échouer `make validate`.

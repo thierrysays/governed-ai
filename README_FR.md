@@ -2,7 +2,11 @@
 
 [English](README.md) | Français
 
-Mise en œuvre de référence d'une plateforme d'IA gouvernée : un plan de contrôle sans dépendance à un fournisseur (identité, gateway, routage, outils, évaluation, audit), piloté par des politiques en code et un registre versionné. Dépôt privé, données synthétiques uniquement (voir `NOTICE_FR.md`).
+Mise en œuvre de référence d'une plateforme d'IA gouvernée : un plan de contrôle sans dépendance à un fournisseur (identité, gateway, routage, outils, évaluation, audit), piloté par des politiques en code et un registre versionné. Dépôt public, tous droits réservés, données synthétiques uniquement (voir `NOTICE_FR.md`).
+
+## Statut
+
+Travail en cours. Les documents marqués brouillon ou proposé ne sont ni une politique approuvée, ni un avis juridique, ni une attestation de conformité à l'ISO/IEC 42001, au NIST AI RMF, à l'EU AI Act ou à tout autre texte. Les citations juridiques sont volontairement absentes tant qu'elles ne sont pas vérifiées dans les textes officiels. Aucune licence n'est accordée (voir `NOTICE_FR.md`).
 
 ## Principe
 
