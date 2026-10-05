@@ -2,6 +2,10 @@
 
 English version: `CHANGELOG.md`.
 
+## 0.6.1
+
+- CI : `actions/checkout` de v4 à v5 et `actions/setup-python` de v5 à v6, pour quitter l'environnement Node.js 20 déprécié. `open-policy-agent/setup-opa` reste en v2.
+
 ## 0.6.0
 
 - Santé de la communauté : `CODE_OF_CONDUCT.md` et `CODE_OF_CONDUCT_FR.md` (Contributor Covenant 2.1, textes officiels anglais et français, contact renseigné) et `SECURITY.md` et `SECURITY_FR.md` (périmètre, signalement privé, attentes) ; liés depuis `CONTRIBUTING` et la paire de README ; `LICENSING` mentionne l'adaptation.

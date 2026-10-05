@@ -2,6 +2,10 @@
 
 French version: `CHANGELOG_FR.md`.
 
+## 0.6.1
+
+- CI: `actions/checkout` v4 to v5 and `actions/setup-python` v5 to v6, to leave the deprecated Node.js 20 runtime. `open-policy-agent/setup-opa` stays at v2.
+
 ## 0.6.0
 
 - Community health: `CODE_OF_CONDUCT.md` and `CODE_OF_CONDUCT_FR.md` (Contributor Covenant 2.1, official English and French texts, contact filled in) and `SECURITY.md` and `SECURITY_FR.md` (scope, private reporting, expectations); linked from `CONTRIBUTING` and the README pair; `LICENSING` notes the adaptation.
