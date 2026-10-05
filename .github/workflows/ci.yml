@@ -15,9 +15,15 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: "3.11"
-      - uses: open-policy-agent/setup-opa@v2
-        with:
-          version: 1.4.2
+      - name: Install OPA (pinned version, SHA-256 verified)
+        env:
+          OPA_VERSION: 1.4.2
+          OPA_SHA256: 2c0ccdbbe0b8e2a5d12d9c42d92f1f34f494ffb32d1f3c4ddc36101be637d66f
+        run: |
+          curl -fsSL -o /tmp/opa "https://github.com/open-policy-agent/opa/releases/download/v${OPA_VERSION}/opa_linux_amd64_static"
+          echo "${OPA_SHA256}  /tmp/opa" | sha256sum -c -
+          sudo install -m 0755 /tmp/opa /usr/local/bin/opa
+          opa version
       - run: make setup
       - run: make check
       - name: DCO sign-off
