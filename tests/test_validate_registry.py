@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Thierry Sayegh-Sauvage
 import sys
 from pathlib import Path
 
@@ -183,3 +185,32 @@ def test_structure_mismatch_reported_by_directory_check(tmp_path):
     (tmp_path / "a.md").write_text(DOC_EN)
     (tmp_path / "a_FR.md").write_text(DOC_FR.replace("## Partie\n\n", ""))
     assert any("heading levels" in e for e in v.check_bilingual_docs(tmp_path))
+
+
+def _licensed_tree(tmp_path):
+    for name in v.LICENSE_FILES:
+        (tmp_path / name).write_text("text")
+    (tmp_path / "tools").mkdir()
+    (tmp_path / "tools" / "a.py").write_text("# SPDX-License-Identifier: Apache-2.0\nprint(1)\n")
+    (tmp_path / "policies").mkdir()
+    (tmp_path / "policies" / "a.rego").write_text("# SPDX-License-Identifier: Apache-2.0\npackage a\n")
+
+
+def test_licensed_tree_passes(tmp_path):
+    _licensed_tree(tmp_path)
+    assert v.check_licensing(tmp_path) == []
+
+
+def test_missing_licence_file_rejected(tmp_path):
+    _licensed_tree(tmp_path)
+    (tmp_path / "LICENSE-docs.txt").unlink()
+    assert any("missing LICENSE-docs.txt" in e for e in v.check_licensing(tmp_path))
+
+
+def test_code_file_without_spdx_header_rejected(tmp_path):
+    _licensed_tree(tmp_path)
+    (tmp_path / "tools" / "b.py").write_text("print(2)\n")
+    (tmp_path / "policies" / "b.rego").write_text("package b\n")
+    errors = v.check_licensing(tmp_path)
+    assert any("tools/b.py" in e for e in errors)
+    assert any("policies/b.rego" in e for e in errors)

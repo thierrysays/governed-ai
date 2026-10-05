@@ -2,6 +2,10 @@
 
 English version: `CHANGELOG.md`.
 
+## 0.4.0
+
+- Licence décidée (ADR 0004, accepté) : Apache-2.0 pour le code (`LICENSE`, en-têtes SPDX sur chaque fichier `.py` et `.rego`), CC BY 4.0 pour les documents et les données (`LICENSE-docs.txt`), marques non concédées. Ajout d'un `NOTICE` simple ; `NOTICE_FR.md` est remplacé par `LICENSING_FR.md`. `make validate` contrôle les fichiers de licence et les en-têtes SPDX.
+
 ## 0.3.2
 
 - Le dépôt est public : suppression des mentions « privé », `NOTICE_FR.md` indique désormais « tous droits réservés, aucune licence accordée », le README gagne une section Statut (les brouillons ne sont ni une politique approuvée, ni un avis juridique, ni une attestation de conformité) et l'ADR 0004 (proposé) consigne les options de licence.

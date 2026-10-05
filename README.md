@@ -2,11 +2,11 @@
 
 English | [Français](README_FR.md)
 
-Reference implementation of a governed AI platform: a vendor-neutral control plane (identity, gateway, routing, tools, evaluation, audit) driven by policies as code and a versioned registry. Public repository, all rights reserved, synthetic data only (see `NOTICE.md`).
+Reference implementation of a governed AI platform: a vendor-neutral control plane (identity, gateway, routing, tools, evaluation, audit) driven by policies as code and a versioned registry. Public repository under open licences (Apache-2.0 for code, CC BY 4.0 for documents and data, see `LICENSING.md`), synthetic data only.
 
 ## Status
 
-Work in progress. Documents marked draft or proposed are not approved policy, not legal advice and not an attestation of conformity with ISO/IEC 42001, the NIST AI RMF, the EU AI Act or any other text. Legal citations are deliberately absent until verified against the official texts. No licence is granted (see `NOTICE.md`).
+Work in progress. Documents marked draft or proposed are not approved policy, not legal advice and not an attestation of conformity with ISO/IEC 42001, the NIST AI RMF, the EU AI Act or any other text. Legal citations are deliberately absent until verified against the official texts. Opening the drafts under a licence does not make them reviewed (see `LICENSING.md`).
 
 ## Principle
 
@@ -33,3 +33,7 @@ Every document exists in English (`name.md`) and in French (`name_FR.md`). `make
 ## Commands
 
 `make setup`, `make validate`, `make test`, `make check` (what CI runs). `make test` requires the `opa` binary in the PATH.
+
+## License
+
+Code: Apache License 2.0 (`LICENSE`). Documents and data: Creative Commons Attribution 4.0 International (`LICENSE-docs.txt`). Scope, attribution wording and trademark reservation: `LICENSING.md`.

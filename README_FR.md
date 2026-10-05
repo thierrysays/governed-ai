@@ -2,11 +2,11 @@
 
 [English](README.md) | Français
 
-Mise en œuvre de référence d'une plateforme d'IA gouvernée : un plan de contrôle sans dépendance à un fournisseur (identité, gateway, routage, outils, évaluation, audit), piloté par des politiques en code et un registre versionné. Dépôt public, tous droits réservés, données synthétiques uniquement (voir `NOTICE_FR.md`).
+Mise en œuvre de référence d'une plateforme d'IA gouvernée : un plan de contrôle sans dépendance à un fournisseur (identité, gateway, routage, outils, évaluation, audit), piloté par des politiques en code et un registre versionné. Dépôt public sous licences ouvertes (Apache-2.0 pour le code, CC BY 4.0 pour les documents et les données, voir `LICENSING_FR.md`), données synthétiques uniquement.
 
 ## Statut
 
-Travail en cours. Les documents marqués brouillon ou proposé ne sont ni une politique approuvée, ni un avis juridique, ni une attestation de conformité à l'ISO/IEC 42001, au NIST AI RMF, à l'EU AI Act ou à tout autre texte. Les citations juridiques sont volontairement absentes tant qu'elles ne sont pas vérifiées dans les textes officiels. Aucune licence n'est accordée (voir `NOTICE_FR.md`).
+Travail en cours. Les documents marqués brouillon ou proposé ne sont ni une politique approuvée, ni un avis juridique, ni une attestation de conformité à l'ISO/IEC 42001, au NIST AI RMF, à l'EU AI Act ou à tout autre texte. Les citations juridiques sont volontairement absentes tant qu'elles ne sont pas vérifiées dans les textes officiels. Ouvrir les brouillons sous licence ne signifie pas qu'ils ont été relus (voir `LICENSING_FR.md`).
 
 ## Principe
 
@@ -33,3 +33,7 @@ Chaque document existe en anglais (`nom.md`) et en français (`nom_FR.md`). `mak
 ## Commandes
 
 `make setup`, `make validate`, `make test`, `make check` (ce que la CI exécute). `make test` exige le binaire `opa` dans le PATH.
+
+## Licence
+
+Code : Apache License 2.0 (`LICENSE`). Documents et données : Creative Commons Attribution 4.0 International (`LICENSE-docs.txt`). Périmètre, formulation de l'attribution et réserve sur les marques : `LICENSING_FR.md`.

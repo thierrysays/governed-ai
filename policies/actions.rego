@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Thierry Sayegh-Sauvage
 # Agent tool calls: the tool must be approved; irreversible tools additionally
 # require an explicit human approval recorded in the request. Default deny.
 package governedai.actions

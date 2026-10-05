@@ -8,4 +8,4 @@ Items to be decided by the owner. None is resolved in code. French version: `ope
 4. Exact legal citations for the EU AI Act, GDPR and sector rules applicable to the first use case: to be taken from the official texts, not from this repository.
 5. Evaluation thresholds and stop criteria: no numeric value is set here; they must come from the first use case's risk assessment.
 6. Review of the French and English texts by the author: the two versions are written in parallel and must be proofread as a pair before any external use.
-7. Licence of the public repository (decided: the repository stays public). Still open: keep "all rights reserved" or choose licences for code and documents (ADR 0004, proposed).
+7. Licence of the public repository: decided on 2026-10-05, Apache-2.0 for code and CC BY 4.0 for documents and data (ADR 0004). Still open: confirmation of the wording by a legal adviser, and a contribution process.
