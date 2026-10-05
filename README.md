@@ -37,3 +37,7 @@ Every document exists in English (`name.md`) and in French (`name_FR.md`). `make
 ## License
 
 Code: Apache License 2.0 (`LICENSE`). Documents and data: Creative Commons Attribution 4.0 International (`LICENSE-docs.txt`). Scope, attribution wording and trademark reservation: `LICENSING.md`.
+
+## Contributing
+
+Contributions are welcome under the process in `CONTRIBUTING.md`: sign-off of every commit (DCO), both language versions, `make check` green.

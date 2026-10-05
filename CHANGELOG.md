@@ -2,6 +2,10 @@
 
 French version: `CHANGELOG_FR.md`.
 
+## 0.5.0
+
+- Contribution process: `CONTRIBUTING.md` and `CONTRIBUTING_FR.md` (scope, licence, DCO sign-off, languages, workflow, review), a bilingual pull request template, and a CI check of the `Signed-off-by` line on pull requests (`tools/check_dco.py`, owner exempt via `.github/dco-exempt.txt`). `.github/` templates are exempt from the document parity check.
+
 ## 0.4.0
 
 - Licensing decided (ADR 0004, accepted): Apache-2.0 for code (`LICENSE`, SPDX headers on every `.py` and `.rego`), CC BY 4.0 for documents and data (`LICENSE-docs.txt`), marks not licensed. Added a plain `NOTICE`; `NOTICE.md` is replaced by `LICENSING.md`. `make validate` checks the licence files and the SPDX headers.

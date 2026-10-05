@@ -8,4 +8,6 @@ Points à trancher par le propriétaire. Aucun n'est résolu dans le code. Engli
 4. Citations juridiques exactes pour l'EU AI Act, le RGPD et les règles sectorielles applicables au premier cas d'usage : à prendre dans les textes officiels, pas dans ce dépôt.
 5. Seuils d'évaluation et critères d'arrêt : aucune valeur chiffrée n'est fixée ici ; elle doit venir de l'évaluation de risque du premier cas d'usage.
 6. Relecture des textes français et anglais par l'auteur : les deux versions sont rédigées en parallèle et doivent être relues en paire avant tout usage externe.
-7. Licence du dépôt public : décidée le 2026-10-05, Apache-2.0 pour le code et CC BY 4.0 pour les documents et les données (ADR 0004). Restent ouverts : la confirmation de la rédaction par un conseil juridique et un processus de contribution.
+7. Licence du dépôt public : décidée le 2026-10-05, Apache-2.0 pour le code et CC BY 4.0 pour les documents et les données (ADR 0004). Reste ouverte : la confirmation de la rédaction par un conseil juridique. Le processus de contribution est défini dans `CONTRIBUTING_FR.md` (version 0.5.0).
+
+8. Canal de signalement des failles de sécurité et code de conduite : aucun défini pour l'instant. Décider d'activer ou non le signalement privé de vulnérabilités de GitHub et d'adopter ou non un code de conduite avant d'inviter des contributions extérieures.

@@ -2,6 +2,10 @@
 
 English version: `CHANGELOG.md`.
 
+## 0.5.0
+
+- Processus de contribution : `CONTRIBUTING.md` et `CONTRIBUTING_FR.md` (périmètre, licence, signature DCO, langues, marche à suivre, relecture), un modèle bilingue de demande de fusion et un contrôle en CI de la ligne `Signed-off-by` sur les demandes de fusion (`tools/check_dco.py`, propriétaire dispensé via `.github/dco-exempt.txt`). Les modèles de `.github/` sont dispensés du contrôle de parité des documents.
+
 ## 0.4.0
 
 - Licence décidée (ADR 0004, accepté) : Apache-2.0 pour le code (`LICENSE`, en-têtes SPDX sur chaque fichier `.py` et `.rego`), CC BY 4.0 pour les documents et les données (`LICENSE-docs.txt`), marques non concédées. Ajout d'un `NOTICE` simple ; `NOTICE_FR.md` est remplacé par `LICENSING_FR.md`. `make validate` contrôle les fichiers de licence et les en-têtes SPDX.

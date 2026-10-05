@@ -214,3 +214,9 @@ def test_code_file_without_spdx_header_rejected(tmp_path):
     errors = v.check_licensing(tmp_path)
     assert any("tools/b.py" in e for e in errors)
     assert any("policies/b.rego" in e for e in errors)
+
+
+def test_github_templates_are_exempt_from_parity(tmp_path):
+    (tmp_path / ".github").mkdir()
+    (tmp_path / ".github" / "pull_request_template.md").write_text("one file")
+    assert v.check_bilingual_docs(tmp_path) == []
