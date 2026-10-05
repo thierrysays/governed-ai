@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Thierry Sayegh-Sauvage
 package governedai.actions_test
 
 import rego.v1

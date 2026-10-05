@@ -2,6 +2,10 @@
 
 French version: `CHANGELOG_FR.md`.
 
+## 0.4.0
+
+- Licensing decided (ADR 0004, accepted): Apache-2.0 for code (`LICENSE`, SPDX headers on every `.py` and `.rego`), CC BY 4.0 for documents and data (`LICENSE-docs.txt`), marks not licensed. Added a plain `NOTICE`; `NOTICE.md` is replaced by `LICENSING.md`. `make validate` checks the licence files and the SPDX headers.
+
 ## 0.3.2
 
 - The repository is public: removed the "private" statements, `NOTICE.md` now states "all rights reserved, no licence granted", README gains a Status section (drafts are not approved policy, legal advice or attestations of conformity), and ADR 0004 (proposed) records the licensing options.

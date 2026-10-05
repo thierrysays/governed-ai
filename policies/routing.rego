@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Thierry Sayegh-Sauvage
 # Model routing: a request reaches a model only if the system is approved and
 # uses that model, and the data class is cleared by BOTH the system and the model.
 # Default deny.

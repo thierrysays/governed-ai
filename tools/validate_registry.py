@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright 2026 Thierry Sayegh-Sauvage
 """Validate registry/*.yaml. Exit 1 on any error. No network access."""
 from __future__ import annotations
 
@@ -187,6 +189,22 @@ def check_bilingual_docs(root: Path) -> list[str]:
     return errors
 
 
+LICENSE_FILES = ("LICENSE", "LICENSE-docs.txt", "NOTICE")
+SPDX = "SPDX-License-Identifier: Apache-2.0"
+CODE_GLOBS = ("tools/*.py", "tests/*.py", "policies/*.rego")
+
+
+def check_licensing(root: Path) -> list[str]:
+    """Licence files must exist and every code file must carry the SPDX header."""
+    errors = [f"licensing: missing {name}" for name in LICENSE_FILES if not (root / name).is_file()]
+    for pattern in CODE_GLOBS:
+        for path in sorted(root.glob(pattern)):
+            head = "\n".join(path.read_text(encoding="utf-8").splitlines()[:3])
+            if SPDX not in head:
+                errors.append(f"licensing: {path.relative_to(root)} lacks the header '{SPDX}'")
+    return errors
+
+
 def validate(root: Path) -> list[str]:
     models = load(root / "registry/models.yaml", "models")
     tools = load(root / "registry/tools.yaml", "tools")
@@ -194,7 +212,7 @@ def validate(root: Path) -> list[str]:
     errors = check_models(models) + check_tools(tools) + check_systems(systems, models, tools)
     for path in sorted((root / "evals").glob("*/cases.yaml")):
         errors += check_evals(load(path, "cases"), systems)
-    return errors + check_bilingual_docs(root)
+    return errors + check_bilingual_docs(root) + check_licensing(root)
 
 
 def main() -> int:
