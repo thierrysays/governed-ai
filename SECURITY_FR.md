@@ -19,7 +19,7 @@ Sont hors périmètre : les avis sur le contenu des documents de gouvernance (o
 
 ## Comment signaler
 
-N'ouvrez pas de ticket public. Envoyez le signalement à tsayegh@gmail.com, en français ou en anglais, avec le fichier ou la règle concernés, les étapes de reproduction (une entrée qui échoue est idéale) et l'impact que vous voyez. Si le signalement privé de vulnérabilités est activé sur ce dépôt, vous pouvez l'utiliser à la place.
+N'ouvrez pas de ticket public. Utilisez le signalement privé de vulnérabilités de GitHub : ouvrez l'onglet Security du dépôt et choisissez « Report a vulnerability », ou rendez-vous sur https://github.com/thierrysays/governed-ai/security/advisories/new. Seul le propriétaire voit le signalement. Si vous ne pouvez pas utiliser GitHub, envoyez-le plutôt à tsayegh@gmail.com. Écrivez en français ou en anglais et indiquez le fichier ou la règle concernés, les étapes de reproduction (une entrée qui échoue est idéale) et l'impact que vous voyez.
 
 ## À quoi vous attendre
 
