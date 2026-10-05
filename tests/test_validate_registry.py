@@ -5,10 +5,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 
 import validate_registry as v  # noqa: E402
 
-OK_MODEL = {"id": "m", "status": "candidate", "owner": "o", "hosting_region": "eu",
+OK_MODEL = {"id": "m", "name_en": "M", "name_fr": "M", "status": "candidate", "owner": "o", "hosting_region": "eu",
             "allowed_data_classes": ["public"]}
-OK_TOOL = {"id": "t", "status": "candidate", "owner": "o", "irreversible": False}
-OK_SYSTEM = {"id": "s", "status": "candidate", "owner": "o", "risk_class": "limited",
+OK_TOOL = {"id": "t", "name_en": "T", "name_fr": "T", "status": "candidate", "owner": "o", "irreversible": False}
+OK_SYSTEM = {"id": "s", "name_en": "S", "name_fr": "S", "status": "candidate", "owner": "o", "risk_class": "limited",
              "human_oversight": "required", "allowed_data_classes": ["public"],
              "models": ["m"], "tools": ["t"]}
 
@@ -85,7 +85,8 @@ def test_approved_system_requires_a_model():
 
 
 OK_CASE = {"id": "c", "category": "data_leakage", "system": "s", "synthetic": True,
-           "prompt": "p", "expected_behaviour": "refuse"}
+           "prompt": "p", "prompt_fr": "p", "expected_behaviour": "refuse",
+           "expected_behaviour_fr": "refuser"}
 
 
 def test_valid_eval_case_passes():
@@ -108,3 +109,35 @@ def test_eval_case_missing_fields_and_duplicates_rejected():
     errors = v.check_evals([{**OK_CASE, "prompt": ""}, OK_CASE, OK_CASE], [OK_SYSTEM])
     assert any("missing prompt" in e for e in errors)
     assert any("duplicate" in e for e in errors)
+
+
+def test_missing_bilingual_names_rejected():
+    errors = v.check_models([{**OK_MODEL, "name_fr": ""}])
+    assert any("missing name_fr" in e for e in errors)
+    errors = v.check_tools([{**OK_TOOL, "name_en": None}])
+    assert any("missing name_en" in e for e in errors)
+    errors = v.check_systems([{**OK_SYSTEM, "name_fr": ""}], [OK_MODEL], [OK_TOOL])
+    assert any("missing name_fr" in e for e in errors)
+
+
+def test_eval_case_requires_french_fields():
+    errors = v.check_evals([{**OK_CASE, "prompt_fr": "", "expected_behaviour_fr": ""}], [OK_SYSTEM])
+    assert any("missing prompt_fr" in e for e in errors)
+    assert any("missing expected_behaviour_fr" in e for e in errors)
+
+
+def test_bilingual_docs_pass_when_paired(tmp_path):
+    (tmp_path / "a.md").write_text("en")
+    (tmp_path / "a_FR.md").write_text("fr")
+    (tmp_path / "CLAUDE.md").write_text("exempt")
+    assert v.check_bilingual_docs(tmp_path) == []
+
+
+def test_missing_french_document_rejected(tmp_path):
+    (tmp_path / "a.md").write_text("en")
+    assert any("missing French counterpart" in e for e in v.check_bilingual_docs(tmp_path))
+
+
+def test_missing_english_document_rejected(tmp_path):
+    (tmp_path / "a_FR.md").write_text("fr")
+    assert any("missing English counterpart" in e for e in v.check_bilingual_docs(tmp_path))

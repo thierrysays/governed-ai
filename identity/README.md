@@ -1,8 +1,8 @@
-# Identité
+# Identity
 
-Principes (à implémenter selon le fournisseur d'identité retenu, voir `docs/open-questions.md`) :
+Principles (to be implemented according to the identity provider chosen, see `docs/open-questions.md`):
 
-- Identités de charge de travail pour les agents et applications, pas de secret statique partagé.
-- Délégation au nom de l'utilisateur (OAuth 2.x, on-behalf-of) avec le périmètre minimal.
-- Jetons de courte durée, rotation et révocation testées.
-- Chaque agent a un propriétaire nommé, présent dans `registry/systems.yaml`.
+- Workload identities for agents and applications; no shared static secret.
+- Delegation on behalf of the user (OAuth 2.x, on-behalf-of) with the minimum scope.
+- Short-lived tokens, with rotation and revocation tested.
+- Every agent has a named owner, recorded in `registry/systems.yaml`.

@@ -1,5 +1,5 @@
-# Évaluation
+# Evaluation
 
-Contenu attendu : jeux d'évaluation versionnés, scénarios de red teaming, seuils d'arrêt, rapports.
+Expected content: versioned evaluation sets, red-teaming scenarios, stop thresholds, reports.
 
-Règle : aucune valeur de seuil n'est fixée dans ce dépôt sans évaluation de risque du cas d'usage (voir `docs/open-questions.md`). Les jeux sont synthétiques. Toute évolution de modèle, de prompt ou de politique déclenche une évaluation de régression en CI.
+Rule: no threshold value is set in this repository without a risk assessment of the use case (see `docs/open-questions.md`). Sets are synthetic. Any change of model, prompt or policy triggers a regression evaluation in CI.

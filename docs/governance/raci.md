@@ -1,16 +1,16 @@
-# RACI (proposition à valider)
+# RACI (proposal, to be validated)
 
-R : réalise. A : responsable final. C : consulté. I : informé.
+R: responsible. A: accountable. C: consulted. I: informed.
 
-| Activité | CODIR | Responsable du risque IA | Propriétaire du système | Plateforme IA | Sécurité (RSSI) | DPO / juridique | Audit interne |
+| Activity | CODIR | AI risk owner | System owner | AI platform | Security (CISO) | DPO / legal | Internal audit |
 |---|---|---|---|---|---|---|---|
-| Politique IA | A | R | C | C | C | C | I |
-| Classification d'un système | I | A | R | C | C | C | I |
-| Approbation d'un modèle ou d'un outil | I | A | C | R | C | C | I |
-| Exploitation du gateway et des politiques | I | I | I | A/R | C | I | I |
-| Évaluation et red teaming | I | A | R | R | C | I | I |
-| Gestion d'un incident | I | A | R | R | R | C | I |
+| AI policy | A | R | C | C | C | C | I |
+| Classification of a system | I | A | R | C | C | C | I |
+| Approval of a model or tool | I | A | C | R | C | C | I |
+| Operation of the gateway and policies | I | I | I | A/R | C | I | I |
+| Evaluation and red teaming | I | A | R | R | C | I | I |
+| Incident management | I | A | R | R | R | C | I |
 | Exceptions | I | A | R | C | C | C | I |
-| Revue indépendante | I | I | I | I | I | I | A/R |
+| Independent review | I | I | I | I | I | I | A/R |
 
-Les trois lignes de maîtrise s'appliquent : propriétaires et plateforme (1re), risque et conformité (2e), audit interne (3e).
+The three lines of defence apply: owners and platform (first line), risk and compliance (second line), internal audit (third line).

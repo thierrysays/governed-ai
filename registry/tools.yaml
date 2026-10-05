@@ -1,11 +1,16 @@
 # Tools and MCP servers an agent may call. Status values: candidate | approved | suspended | retired.
+# name_en and name_fr are mandatory.
 tools:
   - id: example-read-tool
+    name_en: Example read-only tool
+    name_fr: Exemple d'outil en lecture seule
     synthetic: true
     status: candidate
     irreversible: false
     owner: ai-platform
   - id: example-write-tool
+    name_en: Example write tool
+    name_fr: Exemple d'outil en écriture
     synthetic: true
     status: candidate
     irreversible: true

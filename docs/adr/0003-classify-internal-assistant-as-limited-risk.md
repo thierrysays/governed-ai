@@ -1,4 +1,4 @@
-# 0003. Classer l'assistant interne en risque limité, sous conditions
+# 0003. Classify the internal assistant as limited risk, with conditions
 
 - Status: proposed
 - Date: 2026-10-04
@@ -6,25 +6,25 @@
 
 ## Context
 
-Premier cas d'usage de la plateforme : un assistant interne de rédaction, de synthèse et de recherche documentaire. La classe de risque pilote les obligations et les contrôles (`registry/systems.yaml`, `docs/governance/system-register.md`). La classification dépend de la finalité réelle, pas de la technologie.
+First use case of the platform: an internal assistant for drafting, summarising and searching internal documents. The risk class drives the obligations and controls (`registry/systems.yaml`, `docs/governance/system-register.md`). Classification depends on the real purpose, not on the technology.
 
 ## Decision
 
-Classer `internal-assistant` en `limited`, sous trois conditions vérifiables :
+Classify `internal-assistant` as `limited`, under three verifiable conditions:
 
-1. Finalité bornée : rédaction, synthèse, recherche documentaire. Aucune évaluation, sélection, notation, surveillance ou décision concernant des personnes (recrutement, gestion des carrières, évaluation de performance, accès à des prestations).
-2. Données plafonnées à `public` et `internal` dans la politique de routage.
-3. Aucun outil à effet irréversible enregistré pour ce système.
+1. Bounded purpose: drafting, summarising, document search. No evaluation, selection, scoring, monitoring or decision concerning people (recruitment, career management, performance evaluation, access to benefits).
+2. Data capped at `public` and `internal` in the routing policy.
+3. No tool with irreversible effects registered for this system.
 
-Ces conditions sont des **déclencheurs de reclassification** : si l'une cesse d'être vraie, le système est reclassé (probablement `high`) et suspendu jusqu'à nouvelle instruction. Les cas `ia-scope-001` et `ia-scope-002` testent la première condition.
+These conditions are **reclassification triggers**: if any ceases to hold, the system is reclassified (probably `high`) and suspended until reassessed. Cases `ia-scope-001` and `ia-scope-002` test the first condition.
 
-La citation exacte des dispositions applicables (domaines à risque élevé, obligation de transparence) doit être prise dans le texte officiel du Règlement (UE) 2024/1689 par l'auteur avant approbation. Elle n'est pas reproduite ici.
+The exact citation of the applicable provisions (high-risk areas, transparency obligation) must be taken from the official text of Regulation (EU) 2024/1689 by the author before approval. It is not reproduced here.
 
 ## Consequences
 
-Les contrôles restent proportionnés (supervision par échantillonnage, pas de validation humaine systématique). En contrepartie, la gouvernance dépend de la discipline sur la finalité : il faut surveiller la dérive d'usage, ce que les cas d'évaluation hors périmètre et la revue d'échantillons doivent détecter.
+Controls stay proportionate (sampled oversight, no systematic human validation). In return, governance depends on discipline over purpose: usage drift must be watched, which the out-of-scope evaluation cases and sampled review are meant to detect.
 
 ## Alternatives considered
 
-- Classer en `high` par prudence : plus sûr juridiquement, mais retire l'intérêt d'un premier cas simple et fait peser des contrôles disproportionnés.
-- Ne pas classer avant le choix du modèle : la classification dépend de la finalité et non du modèle ; attendre masquerait le risque de dérive.
+- Classify as `high` out of caution: safer legally, but removes the point of a simple first case and imposes disproportionate controls.
+- Do not classify before the model is chosen: classification depends on purpose, not on the model; waiting would hide the drift risk.

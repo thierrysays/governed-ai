@@ -1,20 +1,20 @@
-# Modèle de menaces
+# Threat model
 
-Méthode : décomposition par couche, menaces nommées d'après l'OWASP Top 10 for LLM Applications (édition 2025). À compléter par MITRE ATLAS pour les techniques adverses. Les niveaux de risque ne sont pas chiffrés ici : ils dépendent du cas d'usage.
+Method: decomposition by layer, with threats named after the OWASP Top 10 for LLM Applications (2025 edition). To be completed with MITRE ATLAS for adversarial techniques. Risk levels are not quantified here: they depend on the use case.
 
-| Menace | Couche | Contrôle prévu | Où |
+| Threat | Layer | Planned control | Where |
 |---|---|---|---|
-| LLM01 Injection de prompt | Gateway, agents | Filtrage d'entrée, séparation instructions et données, outils à privilèges minimaux | `gateway/`, `policies/actions.rego` |
-| LLM02 Divulgation d'informations sensibles | Gateway, modèles | Routage par classe de données, filtrage de sortie | `policies/routing.rego` |
-| LLM03 Chaîne d'approvisionnement | Modèles, outils, MCP | Admission au registre, statut `approved` obligatoire | `registry/` |
-| LLM04 Empoisonnement des données et du modèle | Données, évaluation | Provenance des corpus, évaluations de régression | `evals/` |
-| LLM05 Traitement inadéquat des sorties | Applications | Validation des sorties avant action | `gateway/` |
-| LLM06 Autonomie excessive | Agents | Validation humaine des actions irréversibles, budget d'actions | `policies/actions.rego` |
-| LLM07 Fuite du prompt système | Gateway | Aucun secret dans les prompts, revue des prompts | `gateway/` |
-| LLM08 Faiblesses des vecteurs et embeddings | Données, RAG | Contrôle d'accès hérité des sources, étiquettes de sensibilité | `registry/`, catalogue |
-| LLM09 Désinformation | Évaluation | Jeux d'évaluation, supervision humaine selon la classe de risque | `evals/` |
-| LLM10 Consommation non bornée | Gateway, exploitation | Quotas, limites de débit, budgets de tokens | `gateway/` |
-| Contournement du gateway | Réseau | Politique réseau interdisant tout accès direct aux modèles | `infra/` |
-| Usurpation d'identité d'un agent | Identité | Identités de charge de travail, jetons à portée limitée | `identity/` |
+| LLM01 Prompt injection | Gateway, agents | Input filtering, separation of instructions and data, least-privilege tools | `gateway/`, `policies/actions.rego` |
+| LLM02 Sensitive information disclosure | Gateway, models | Routing by data class, output filtering | `policies/routing.rego` |
+| LLM03 Supply chain | Models, tools, MCP | Registry admission, mandatory `approved` status | `registry/` |
+| LLM04 Data and model poisoning | Data, evaluation | Corpus provenance, regression evaluations | `evals/` |
+| LLM05 Improper output handling | Applications | Output validation before action | `gateway/` |
+| LLM06 Excessive agency | Agents | Human approval of irreversible actions, action budget | `policies/actions.rego` |
+| LLM07 System prompt leakage | Gateway | No secret in prompts, prompt review | `gateway/` |
+| LLM08 Vector and embedding weaknesses | Data, RAG | Access control inherited from sources, sensitivity labels | `registry/`, catalogue |
+| LLM09 Misinformation | Evaluation | Evaluation sets, human oversight according to risk class | `evals/` |
+| LLM10 Unbounded consumption | Gateway, operations | Quotas, rate limits, token budgets | `gateway/` |
+| Gateway bypass | Network | Network policy forbidding any direct access to models | `infra/` |
+| Agent impersonation | Identity | Workload identities, narrowly scoped credentials | `identity/` |
 
-Références : OWASP, Top 10 for LLM Applications 2025 ; MITRE ATLAS ; ISO/IEC 27001:2022.
+References: OWASP, Top 10 for LLM Applications 2025; MITRE ATLAS; ISO/IEC 27001:2022.

@@ -37,6 +37,9 @@ def check_common(kind: str, items: list[dict]) -> list[str]:
     errors = check_ids(kind, items)
     for item in items:
         ident = item.get("id", "?")
+        for field in ("name_en", "name_fr"):
+            if not item.get(field):
+                errors.append(f"{kind} {ident}: missing {field}")
         if item.get("status") not in STATUS:
             errors.append(f"{kind} {ident}: invalid status {item.get('status')!r}")
         if not item.get("owner"):
@@ -114,9 +117,31 @@ def check_evals(cases: list[dict], systems: list[dict]) -> list[str]:
             errors.append(f"eval case {ident}: unknown system {c.get('system')!r}")
         if c.get("synthetic") is not True:
             errors.append(f"eval case {ident}: must be marked synthetic: true")
-        for field in ("prompt", "expected_behaviour"):
+        for field in ("prompt", "prompt_fr", "expected_behaviour", "expected_behaviour_fr"):
             if not c.get(field):
                 errors.append(f"eval case {ident}: missing {field}")
+    return errors
+
+
+EXEMPT_DOCS = {"CLAUDE.md"}
+SKIP_DIRS = {".git", ".venv", ".pytest_cache", "__pycache__"}
+
+
+def check_bilingual_docs(root: Path) -> list[str]:
+    """Every English `name.md` needs a French `name_FR.md`, and the reverse."""
+    errors = []
+    for path in sorted(root.rglob("*.md")):
+        rel = path.relative_to(root)
+        if SKIP_DIRS & set(rel.parts) or rel.name in EXEMPT_DOCS:
+            continue
+        if path.stem.endswith("_FR"):
+            twin = path.with_name(path.stem[: -len("_FR")] + ".md")
+            if not twin.exists():
+                errors.append(f"document {rel}: missing English counterpart {twin.name}")
+        else:
+            twin = path.with_name(path.stem + "_FR.md")
+            if not twin.exists():
+                errors.append(f"document {rel}: missing French counterpart {twin.name}")
     return errors
 
 
@@ -127,7 +152,7 @@ def validate(root: Path) -> list[str]:
     errors = check_models(models) + check_tools(tools) + check_systems(systems, models, tools)
     for path in sorted((root / "evals").glob("*/cases.yaml")):
         errors += check_evals(load(path, "cases"), systems)
-    return errors
+    return errors + check_bilingual_docs(root)
 
 
 def main() -> int:

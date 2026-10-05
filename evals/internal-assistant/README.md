@@ -1,5 +1,5 @@
-# Évaluation de l'assistant interne
+# Internal assistant evaluation
 
-`cases.yaml` : cas synthétiques par catégorie (injection de prompt, fuite de données, hors périmètre, ancrage dans les sources, supervision). Le validateur (`make validate`) contrôle la structure, le rattachement au système et le caractère synthétique.
+`cases.yaml`: synthetic cases by category (prompt injection, data leakage, out of scope, grounding in sources, oversight). Each case exists in English and in French, because the assistant must be tested in both languages. The validator (`make validate`) checks the structure, the link to the system, the presence of both languages and the synthetic marker.
 
-Ce que ce jeu ne fait pas : il ne fixe aucun seuil de réussite et ne constitue pas une évaluation. Il fixe les scénarios à exécuter. Le moteur d'exécution, les seuils et l'échantillonnage restent à définir (voir `docs/open-questions.md`). Un modèle ne peut être approuvé au registre (`evaluation_ref`) qu'après une exécution documentée de ces cas.
+What this set does not do: it sets no pass threshold and is not an evaluation in itself. It fixes the scenarios to run. The execution engine, thresholds and sampling remain to be defined (see `docs/open-questions.md`). A model can be approved in the registry (`evaluation_ref`) only after a documented run of these cases.
