@@ -4,7 +4,7 @@ French version: `CONTRIBUTING_FR.md`.
 
 ## Before you start
 
-This is a reference implementation maintained by one owner. Contributions are welcome and reviewed at the owner's discretion, with no commitment on response time. Open an issue before starting anything larger than a fix, so the direction can be agreed first. Many documents are still drafts (see the Status section of `README.md`).
+This is a reference implementation maintained by one owner. Contributions are welcome and reviewed at the owner's discretion, with no commitment on response time. Open an issue before starting anything larger than a fix, so the direction can be agreed first. Many documents are still drafts (see the Status section of `README.md`). By taking part you agree to follow the Code of Conduct (`CODE_OF_CONDUCT.md`). Report security issues privately, as described in `SECURITY.md`, never in a public issue.
 
 ## What is welcome
 

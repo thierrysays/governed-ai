@@ -2,6 +2,10 @@
 
 English version: `CHANGELOG.md`.
 
+## 0.6.0
+
+- Santé de la communauté : `CODE_OF_CONDUCT.md` et `CODE_OF_CONDUCT_FR.md` (Contributor Covenant 2.1, textes officiels anglais et français, contact renseigné) et `SECURITY.md` et `SECURITY_FR.md` (périmètre, signalement privé, attentes) ; liés depuis `CONTRIBUTING` et la paire de README ; `LICENSING` mentionne l'adaptation.
+
 ## 0.5.0
 
 - Processus de contribution : `CONTRIBUTING.md` et `CONTRIBUTING_FR.md` (périmètre, licence, signature DCO, langues, marche à suivre, relecture), un modèle bilingue de demande de fusion et un contrôle en CI de la ligne `Signed-off-by` sur les demandes de fusion (`tools/check_dco.py`, propriétaire dispensé via `.github/dco-exempt.txt`). Les modèles de `.github/` sont dispensés du contrôle de parité des documents.

@@ -24,6 +24,8 @@ Governed AI reference platform. Owner: Thierry Sayegh-Sauvage. Public repository
 - `CONTRIBUTING.md` and `CONTRIBUTING_FR.md` define the process; commits need a `Signed-off-by` line (DCO) checked in CI on pull requests; the owner is exempt (`.github/dco-exempt.txt`). Never add a `Signed-off-by` line on someone's behalf: the certification is personal.
 - Never set a model, tool or system to `approved`, and never merge a pull request, unless the owner explicitly asks.
 
+- `SECURITY.md` and `CODE_OF_CONDUCT.md` name the owner's email as the reporting contact: never change or add a contact address without the owner's decision.
+
 ## Git
 - Branch per topic; commit prefixes `policy:`, `registry:`, `docs:`, `tools:`, `infra:`, `eval:`.
 - Update `CHANGELOG.md` and `VERSION` (semantic versioning).

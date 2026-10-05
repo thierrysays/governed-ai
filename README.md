@@ -40,4 +40,4 @@ Code: Apache License 2.0 (`LICENSE`). Documents and data: Creative Commons Attri
 
 ## Contributing
 
-Contributions are welcome under the process in `CONTRIBUTING.md`: sign-off of every commit (DCO), both language versions, `make check` green.
+Contributions are welcome under the process in `CONTRIBUTING.md`: sign-off of every commit (DCO), both language versions, `make check` green. Participants follow the Code of Conduct (`CODE_OF_CONDUCT.md`). Security issues: see `SECURITY.md`.

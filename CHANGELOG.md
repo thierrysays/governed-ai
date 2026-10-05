@@ -2,6 +2,10 @@
 
 French version: `CHANGELOG_FR.md`.
 
+## 0.6.0
+
+- Community health: `CODE_OF_CONDUCT.md` and `CODE_OF_CONDUCT_FR.md` (Contributor Covenant 2.1, official English and French texts, contact filled in) and `SECURITY.md` and `SECURITY_FR.md` (scope, private reporting, expectations); linked from `CONTRIBUTING` and the README pair; `LICENSING` notes the adaptation.
+
 ## 0.5.0
 
 - Contribution process: `CONTRIBUTING.md` and `CONTRIBUTING_FR.md` (scope, licence, DCO sign-off, languages, workflow, review), a bilingual pull request template, and a CI check of the `Signed-off-by` line on pull requests (`tools/check_dco.py`, owner exempt via `.github/dco-exempt.txt`). `.github/` templates are exempt from the document parity check.
