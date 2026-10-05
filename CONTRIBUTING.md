@@ -38,7 +38,7 @@ Every document exists in English (`name.md`) and in French (`name_FR.md`) with t
 1. Fork the repository and create a branch per topic from `main`.
 2. Prefix commit messages with `policy:`, `registry:`, `docs:`, `tools:`, `infra:` or `eval:`, and sign them off.
 3. For any change to behaviour or content, update `CHANGELOG.md`, `CHANGELOG_FR.md` and `VERSION` (semantic versioning).
-4. Run `make setup`, then `make check`. It must pass before you open the pull request.
+4. Install OPA 1.4.2 (the version and checksum pinned in `.github/workflows/ci.yml`), then run `make setup` and `make check`. It must pass before you open the pull request.
 5. Open a pull request to `main`: say what changes, why, and what you did not verify. CI must be green.
 
 ## Quality checks

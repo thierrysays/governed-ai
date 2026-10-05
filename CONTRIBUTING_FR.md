@@ -38,7 +38,7 @@ Chaque document existe en anglais (`nom.md`) et en français (`nom_FR.md`), avec
 1. Dupliquez le dépôt (fork) et créez une branche par sujet à partir de `main`.
 2. Préfixez les messages de commit par `policy:`, `registry:`, `docs:`, `tools:`, `infra:` ou `eval:`, et signez-les.
 3. Pour tout changement de comportement ou de contenu, mettez à jour `CHANGELOG.md`, `CHANGELOG_FR.md` et `VERSION` (versionnage sémantique).
-4. Lancez `make setup`, puis `make check`. Il doit passer avant d'ouvrir la demande de fusion.
+4. Installez OPA 1.4.2 (version et somme de contrôle figées dans `.github/workflows/ci.yml`), puis lancez `make setup` et `make check`. Il doit passer avant d'ouvrir la demande de fusion.
 5. Ouvrez une demande de fusion vers `main` : indiquez ce qui change, pourquoi, et ce que vous n'avez pas vérifié. La CI doit être verte.
 
 ## Contrôles de qualité

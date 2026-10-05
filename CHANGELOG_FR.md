@@ -2,6 +2,10 @@
 
 English version: `CHANGELOG.md`.
 
+## 0.6.2
+
+- CI : `open-policy-agent/setup-opa` est remplacé par un téléchargement figé du binaire OPA 1.4.2 avec vérification SHA-256 (la somme de contrôle correspond à celle publiée avec la version). Cela supprime le dernier avertissement de dépréciation Node.js 20 et la dépendance à une action tierce. Pour changer de version d'OPA, il faut désormais mettre à jour ensemble `OPA_VERSION` et `OPA_SHA256`.
+
 ## 0.6.1
 
 - CI : `actions/checkout` de v4 à v5 et `actions/setup-python` de v5 à v6, pour quitter l'environnement Node.js 20 déprécié. `open-policy-agent/setup-opa` reste en v2.
