@@ -13,6 +13,7 @@ Governed AI reference platform. Owner: Thierry Sayegh-Sauvage. Private, propriet
 - Vendor neutral: no product-specific configuration in `policies/` or `registry/` schemas; product choices go through an ADR.
 - Every policy rule has a positive and a negative Rego test; every registry validation rule has a negative test.
 - Never invent a figure, threshold, legal citation or vendor claim. Unknowns go to `docs/open-questions.md`.
+- Bilingual: every Markdown document exists in English (`name.md`) and French (`name_FR.md`), written in parallel, never machine-pasted; registry entries carry `name_en` and `name_fr`; evaluation cases carry both languages. `make validate` enforces parity and identical structure (same heading levels, same table shapes, same code blocks) between the two versions (`CLAUDE.md` is exempt). Follow the French and English register rules (no em dash, British spelling in English).
 - Synthetic data only. No secrets, keys, client data or personal data in the repository.
 - No network access in tools or tests; dependencies pinned in `requirements.txt`.
 - French text: no em dashes; keep the word "token"; never "au conseil" for a management body (use COMEX or CODIR).

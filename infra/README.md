@@ -1,3 +1,3 @@
 # Infrastructure
 
-Infrastructure as code, à écrire une fois le cloud cible choisi (ADR 0002). Exigence structurante : isolation réseau empêchant tout appel direct aux modèles, de sorte que le gateway soit le seul chemin (exigence G1). Aucun secret, état Terraform ou clé dans le dépôt (`.gitignore`).
+Infrastructure as code, to be written once the target cloud is chosen (ADR 0002). Structuring requirement: network isolation preventing any direct call to the models, so that the gateway is the only path (requirement G1). No secret, Terraform state or key in the repository (`.gitignore`).

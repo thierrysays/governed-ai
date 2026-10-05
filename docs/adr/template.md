@@ -1,3 +1,5 @@
+English version of this template. French version: `template_FR.md`.
+
 # NNNN. Title in the imperative or as a noun phrase
 
 - Status: proposed | accepted | superseded by NNNN | deprecated

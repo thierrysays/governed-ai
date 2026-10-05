@@ -1,22 +1,22 @@
-# Politique IA (brouillon à valider par le COMEX ou le CODIR)
+# AI policy (draft, to be validated by the COMEX or CODIR)
 
-Statut : brouillon. Aucune clause n'est en vigueur avant approbation par l'organe de direction compétent.
+Status: draft. No clause is in force until approved by the competent management body.
 
-## 1. Objet et périmètre
-Cette politique encadre la conception, l'acquisition, le déploiement et l'exploitation des systèmes d'IA, y compris les agents et les outils qu'ils appellent. Elle s'applique à tout usage passant par la plateforme, et la plateforme est le seul chemin autorisé (voir `gateway/README.md`).
+## 1. Purpose and scope
+This policy governs the design, acquisition, deployment and operation of AI systems, including agents and the tools they call. It applies to every use that goes through the platform, and the platform is the only authorised path (see `gateway/README.md`).
 
-## 2. Principes
-1. **Registre d'abord** : un modèle, un outil ou un système non inscrit au registre (`registry/`) n'est pas autorisé.
-2. **Classification avant usage** : tout système reçoit une classe de risque (`unacceptable`, `high`, `limited`, `minimal`) justifiée dans `system-register.md`. Un système `unacceptable` n'est jamais approuvé.
-3. **Responsabilité nominative** : chaque système a un responsable désigné (champ `accountable`). Pas d'approbation sans responsable.
-4. **Supervision humaine** : obligatoire pour les systèmes à risque élevé et pour toute action irréversible d'un agent.
-5. **Données** : un modèle ne reçoit que les classes de données pour lesquelles il est habilité (`allowed_data_classes`).
-6. **Évaluation continue** : aucun modèle ni prompt n'entre en production sans évaluation versionnée (`evals/`). Les seuils sont fixés par l'évaluation de risque de chaque cas d'usage.
-7. **Traçabilité** : toute requête et toute décision de politique sont journalisées (`observability/`).
-8. **Retrait** : tout système a une condition de suspension et un plan de retrait.
+## 2. Principles
+1. **Registry first**: a model, tool or system that is not in the registry (`registry/`) is not authorised.
+2. **Classification before use**: every system receives a risk class (`unacceptable`, `high`, `limited`, `minimal`), justified in `system-register.md`. A system classed `unacceptable` is never approved.
+3. **Named accountability**: every system has a designated accountable person (`accountable` field). No approval without one.
+4. **Human oversight**: mandatory for high-risk systems and for any irreversible agent action.
+5. **Data**: a model receives only the data classes it is cleared for (`allowed_data_classes`).
+6. **Continuous evaluation**: no model or prompt enters production without a versioned evaluation (`evals/`). Thresholds are set by the risk assessment of each use case.
+7. **Traceability**: every request and every policy decision is logged (`observability/`).
+8. **Withdrawal**: every system has a suspension condition and a decommissioning plan.
 
-## 3. Gestion des exceptions
-Une exception est écrite, datée, bornée dans le temps et approuvée par le responsable du risque. Elle est inscrite au registre, jamais accordée oralement.
+## 3. Exceptions
+An exception is written, dated, time-bound and approved by the AI risk owner. It is recorded in the registry and never granted verbally.
 
-## 4. Revue
-Revue au moins annuelle par le CODIR et après tout incident significatif. Les décisions structurantes passent par un ADR.
+## 4. Review
+Reviewed at least annually by the CODIR and after any significant incident. Structural decisions go through an ADR.

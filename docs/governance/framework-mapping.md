@@ -1,15 +1,15 @@
-# Correspondance avec les référentiels
+# Mapping to reference frameworks
 
-Statut : cartographie de travail. Les numéros de clauses et d'articles doivent être vérifiés par l'auteur dans les textes officiels avant tout usage externe. Aucune citation juridique n'est reproduite ici.
+Status: working mapping. Clause and article numbers must be verified by the author against the official texts before any external use. No legal citation is reproduced here.
 
-| Capacité de la plateforme | ISO/IEC 42001 (système de management de l'IA) | NIST AI RMF 1.0 | EU AI Act (Règlement 2024/1689) | Contrôle dans ce dépôt |
+| Platform capability | ISO/IEC 42001 (AI management system) | NIST AI RMF 1.0 | EU AI Act (Regulation 2024/1689) | Control in this repository |
 |---|---|---|---|---|
-| Politique, rôles, appétence au risque | Leadership, politique, rôles | GOVERN | Obligations des fournisseurs et déployeurs | `docs/governance/ai-policy.md`, `raci.md` |
-| Inventaire et classification des systèmes | Planification, évaluation des risques | MAP | Classification par niveau de risque | `registry/systems.yaml`, `system-register.md` |
-| Admission des modèles et outils | Contrôles sur les ressources et les tiers | MAP, MANAGE | Obligations liées aux modèles à usage général, chaîne de valeur | `registry/models.yaml`, `registry/tools.yaml`, `policies/routing.rego` |
-| Supervision humaine, actions irréversibles | Contrôles opérationnels | MANAGE | Supervision humaine des systèmes à risque élevé | `policies/actions.rego` |
-| Évaluation et tests | Évaluation des performances | MEASURE | Exactitude, robustesse, cybersécurité | `evals/` |
-| Journalisation et traçabilité | Informations documentées, surveillance | MEASURE, MANAGE | Tenue de journaux | `observability/` |
-| Incidents et amélioration continue | Amélioration | MANAGE | Surveillance après commercialisation, signalement | `docs/governance/ai-policy.md` §4 |
+| Policy, roles, risk appetite | Leadership, policy, roles | GOVERN | Obligations of providers and deployers | `docs/governance/ai-policy.md`, `raci.md` |
+| Inventory and classification of systems | Planning, risk assessment | MAP | Classification by risk level | `registry/systems.yaml`, `system-register.md` |
+| Admission of models and tools | Controls on resources and third parties | MAP, MANAGE | Obligations for general-purpose models, value chain | `registry/models.yaml`, `registry/tools.yaml`, `policies/routing.rego` |
+| Human oversight, irreversible actions | Operational controls | MANAGE | Human oversight of high-risk systems | `policies/actions.rego` |
+| Evaluation and testing | Performance evaluation | MEASURE | Accuracy, robustness, cybersecurity | `evals/` |
+| Logging and traceability | Documented information, monitoring | MEASURE, MANAGE | Record keeping | `observability/` |
+| Incidents and continual improvement | Improvement | MANAGE | Post-market monitoring, reporting | `docs/governance/ai-policy.md` §4 |
 
-Références : ISO/IEC 42001:2023 ; NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0), NIST AI 100-1, 2023 ; Règlement (UE) 2024/1689 ; COBIT 2019.
+References: ISO/IEC 42001:2023; NIST, Artificial Intelligence Risk Management Framework (AI RMF 1.0), NIST AI 100-1, 2023; Regulation (EU) 2024/1689; COBIT 2019.

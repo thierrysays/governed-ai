@@ -1,27 +1,31 @@
 # governed-ai
 
+English | [Français](README_FR.md)
+
 Reference implementation of a governed AI platform: a vendor-neutral control plane (identity, gateway, routing, tools, evaluation, audit) driven by policies as code and a versioned registry. Private repository, synthetic data only (see `NOTICE.md`).
 
-Reference implementation of a governed AI platform: vendor-neutral, policies as code, versioned registry, continuous evaluation. Private, synthetic data only.
+## Principle
 
-## Principe
+Normative governance (policy, risk classification, responsibilities) is defined in `docs/governance/`. It is enforced at runtime by versioned policies (`policies/`, Rego) that rely on a registry (`registry/`, YAML). Nothing is approved outside this registry. The choice of vendors stays open (`docs/adr/0002`).
 
-La gouvernance normative (politique, classification des risques, responsabilités) est définie dans `docs/governance/`. Elle est appliquée à l'exécution par des politiques versionnées (`policies/`, Rego) qui s'appuient sur un registre (`registry/`, YAML). Rien n'est approuvé hors de ce registre. Le choix des fournisseurs reste ouvert (`docs/adr/0002`).
+## Bilingual rule
 
-| Répertoire | Rôle |
+Every document exists in English (`name.md`) and in French (`name_FR.md`). `make validate` fails when one of the pair is missing, or when the two versions differ in structure (heading levels, table rows and columns, code blocks). Registry entries carry `name_en` and `name_fr`; evaluation cases carry both languages.
+
+| Directory | Role |
 |---|---|
-| `docs/governance/` | Politique IA, registre des systèmes, RACI, correspondance ISO/IEC 42001, NIST AI RMF, EU AI Act |
-| `docs/adr/` | Décisions d'architecture |
-| `docs/threat-model.md` | Modèle de menaces (OWASP LLM Top 10) |
-| `policies/` | Politiques OPA/Rego et leurs tests |
-| `registry/` | Modèles approuvés, outils et serveurs MCP, systèmes (YAML) |
-| `gateway/` | Contrat d'exigences du point d'entrée, indépendant du produit |
-| `identity/` | Identités de charge de travail et périmètres |
-| `evals/` | Jeux d'évaluation et seuils d'arrêt |
-| `observability/` | Traçage et journal d'audit |
-| `infra/` | Infrastructure as code et isolation réseau |
-| `tools/`, `tests/` | Validation du registre et tests |
+| `docs/governance/` | AI policy, system register, RACI, mapping to ISO/IEC 42001, NIST AI RMF, EU AI Act |
+| `docs/adr/` | Architecture decisions |
+| `docs/threat-model.md` | Threat model (OWASP LLM Top 10) |
+| `policies/` | OPA/Rego policies and their tests |
+| `registry/` | Approved models, tools and MCP servers, systems (YAML) |
+| `gateway/` | Requirements contract for the entry point, product-independent |
+| `identity/` | Workload identities and scopes |
+| `evals/` | Evaluation sets and stop thresholds |
+| `observability/` | Tracing and audit log |
+| `infra/` | Infrastructure as code and network isolation |
+| `tools/`, `tests/` | Registry validation and tests |
 
-## Commandes
+## Commands
 
-`make setup`, `make validate`, `make test`, `make check` (ce que la CI exécute). `make test` exige le binaire `opa` dans le PATH.
+`make setup`, `make validate`, `make test`, `make check` (what CI runs). `make test` requires the `opa` binary in the PATH.

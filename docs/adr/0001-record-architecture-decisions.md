@@ -10,7 +10,7 @@ The platform combines normative, architectural and vendor choices that will be q
 
 ## Decision
 
-Every significant decision is recorded as an ADR in `docs/adr/` using `template.md`, numbered sequentially, never rewritten: a change of mind creates a new ADR that supersedes the old one.
+Every significant decision is recorded as an ADR in `docs/adr/` using `template.md`, numbered sequentially, never rewritten: a change of mind creates a new ADR that supersedes the old one. Each ADR exists in English and in French.
 
 ## Consequences
 

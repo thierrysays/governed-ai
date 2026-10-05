@@ -1,7 +1,9 @@
 # Models approved for routing. Status values: candidate | approved | suspended | retired.
-# Entries marked synthetic are illustrations only.
+# Entries marked synthetic are illustrations only. name_en and name_fr are mandatory.
 models:
   - id: example-small-model
+    name_en: Example small model
+    name_fr: Exemple de petit modèle
     synthetic: true
     status: candidate
     hosting_region: eu

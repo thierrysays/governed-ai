@@ -1,20 +1,25 @@
-# Registre des systèmes : méthode
+# System register: method
 
-La source de vérité machine est `registry/systems.yaml`. Ce document porte la justification humaine de chaque classification.
+The machine-readable source of truth is `registry/systems.yaml`. This document holds the human justification for each classification.
 
-## Fiche par système (à copier)
+## Sheet per system (to copy)
 
-| Champ | Contenu |
+| Field | Content |
 |---|---|
-| Identifiant | Identique à `registry/systems.yaml` |
-| Finalité | Décision ou tâche soutenue, utilisateurs concernés |
-| Classe de risque | `unacceptable`, `high`, `limited` ou `minimal`, avec la justification et la référence au texte applicable (citation exacte à prendre dans le texte officiel) |
-| Données traitées | Classes de données, présence de données personnelles, base légale |
-| Modèles et outils | Références au registre |
-| Supervision humaine | Modalité et point de contrôle |
-| Responsable | Personne nommée |
-| Évaluation | Référence au jeu d'évaluation et aux critères d'arrêt |
-| Conditions de suspension | Déclencheurs et procédure |
+| Identifier | Same as in `registry/systems.yaml` |
+| Purpose | Decision or task supported, users concerned |
+| Risk class | `unacceptable`, `high`, `limited` or `minimal`, with the justification and the reference to the applicable text (exact citation to be taken from the official text) |
+| Data processed | Data classes, presence of personal data, legal basis |
+| Models and tools | References to the registry |
+| Human oversight | Mode and control point |
+| Accountable person | Named individual |
+| Evaluation | Reference to the evaluation set and the stop criteria |
+| Suspension conditions | Triggers and procedure |
 
-## Systèmes enregistrés
-Aucun système réel. L'entrée `example-internal-assistant` du registre est synthétique.
+## Registered systems
+
+| Identifier | Status | Class | Sheet |
+|---|---|---|---|
+| `internal-assistant` | candidate | limited | `use-cases/internal-assistant.md`, ADR 0003 |
+
+The `example-internal-assistant` registry entry is synthetic.

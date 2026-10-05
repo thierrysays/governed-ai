@@ -1,5 +1,5 @@
-# Observabilité et audit
+# Observability and audit
 
-- Traçage de bout en bout par OpenTelemetry (requête, décision de politique, modèle, outil).
-- Journal d'audit immuable, exploitable par la 2e et la 3e ligne de maîtrise.
-- Indicateurs de résultat suivis : incidents, taux d'exceptions, délai d'approbation, dérive d'évaluation. Un indicateur d'activité seul (requêtes filtrées) ne mesure pas l'efficacité du contrôle.
+- End-to-end tracing with OpenTelemetry (request, policy decision, model, tool).
+- Immutable audit log, usable by the second and third lines of defence.
+- Outcome indicators to track: incidents, exception rate, approval lead time, evaluation drift. An activity indicator alone (requests filtered) does not measure the effectiveness of the control.

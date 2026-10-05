@@ -5,11 +5,12 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "tools"))
 
 import validate_registry as v  # noqa: E402
 
-OK_MODEL = {"id": "m", "status": "candidate", "owner": "o", "hosting_region": "eu",
+OK_MODEL = {"id": "m", "name_en": "M", "name_fr": "M", "status": "candidate", "owner": "o", "hosting_region": "eu",
             "allowed_data_classes": ["public"]}
-OK_TOOL = {"id": "t", "status": "candidate", "owner": "o", "irreversible": False}
-OK_SYSTEM = {"id": "s", "status": "candidate", "owner": "o", "risk_class": "limited",
-             "human_oversight": "required", "models": ["m"], "tools": ["t"]}
+OK_TOOL = {"id": "t", "name_en": "T", "name_fr": "T", "status": "candidate", "owner": "o", "irreversible": False}
+OK_SYSTEM = {"id": "s", "name_en": "S", "name_fr": "S", "status": "candidate", "owner": "o", "risk_class": "limited",
+             "human_oversight": "required", "allowed_data_classes": ["public"],
+             "models": ["m"], "tools": ["t"]}
 
 
 def test_repository_registry_is_valid():
@@ -69,3 +70,116 @@ def test_unknown_references_rejected():
     errors = v.check_systems([bad], [OK_MODEL], [OK_TOOL])
     assert any("unknown model" in e for e in errors)
     assert any("unknown tool" in e for e in errors)
+
+
+def test_system_data_classes_required_and_known():
+    assert any("allowed_data_classes" in e for e in v.check_systems(
+        [{**OK_SYSTEM, "allowed_data_classes": []}], [OK_MODEL], [OK_TOOL]))
+    assert any("unknown data class" in e for e in v.check_systems(
+        [{**OK_SYSTEM, "allowed_data_classes": ["secret"]}], [OK_MODEL], [OK_TOOL]))
+
+
+def test_approved_system_requires_a_model():
+    bad = {**OK_SYSTEM, "status": "approved", "accountable": "x", "models": []}
+    assert any("without any model" in e for e in v.check_systems([bad], [OK_MODEL], [OK_TOOL]))
+
+
+OK_CASE = {"id": "c", "category": "data_leakage", "system": "s", "synthetic": True,
+           "prompt": "p", "prompt_fr": "p", "expected_behaviour": "refuse",
+           "expected_behaviour_fr": "refuser"}
+
+
+def test_valid_eval_case_passes():
+    assert v.check_evals([OK_CASE], [OK_SYSTEM]) == []
+
+
+def test_eval_case_invalid_category_rejected():
+    assert any("invalid category" in e for e in v.check_evals([{**OK_CASE, "category": "x"}], [OK_SYSTEM]))
+
+
+def test_eval_case_unknown_system_rejected():
+    assert any("unknown system" in e for e in v.check_evals([{**OK_CASE, "system": "ghost"}], [OK_SYSTEM]))
+
+
+def test_eval_case_must_be_synthetic():
+    assert any("synthetic" in e for e in v.check_evals([{**OK_CASE, "synthetic": False}], [OK_SYSTEM]))
+
+
+def test_eval_case_missing_fields_and_duplicates_rejected():
+    errors = v.check_evals([{**OK_CASE, "prompt": ""}, OK_CASE, OK_CASE], [OK_SYSTEM])
+    assert any("missing prompt" in e for e in errors)
+    assert any("duplicate" in e for e in errors)
+
+
+def test_missing_bilingual_names_rejected():
+    errors = v.check_models([{**OK_MODEL, "name_fr": ""}])
+    assert any("missing name_fr" in e for e in errors)
+    errors = v.check_tools([{**OK_TOOL, "name_en": None}])
+    assert any("missing name_en" in e for e in errors)
+    errors = v.check_systems([{**OK_SYSTEM, "name_fr": ""}], [OK_MODEL], [OK_TOOL])
+    assert any("missing name_fr" in e for e in errors)
+
+
+def test_eval_case_requires_french_fields():
+    errors = v.check_evals([{**OK_CASE, "prompt_fr": "", "expected_behaviour_fr": ""}], [OK_SYSTEM])
+    assert any("missing prompt_fr" in e for e in errors)
+    assert any("missing expected_behaviour_fr" in e for e in errors)
+
+
+def test_bilingual_docs_pass_when_paired(tmp_path):
+    (tmp_path / "a.md").write_text("en")
+    (tmp_path / "a_FR.md").write_text("fr")
+    (tmp_path / "CLAUDE.md").write_text("exempt")
+    assert v.check_bilingual_docs(tmp_path) == []
+
+
+def test_missing_french_document_rejected(tmp_path):
+    (tmp_path / "a.md").write_text("en")
+    assert any("missing French counterpart" in e for e in v.check_bilingual_docs(tmp_path))
+
+
+def test_missing_english_document_rejected(tmp_path):
+    (tmp_path / "a_FR.md").write_text("fr")
+    assert any("missing English counterpart" in e for e in v.check_bilingual_docs(tmp_path))
+
+
+DOC_EN = "# Title\n\n## Part\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n```\ncode\n```\n"
+DOC_FR = "# Titre\n\n## Partie\n\n| a | b |\n|---|---|\n| 1 | 2 |\n\n```\ncode\n```\n"
+
+
+def test_structure_ignores_text_and_code_content():
+    assert v.check_structure_pair("a.md", DOC_EN, DOC_FR) == []
+    assert v.structure("```\n# not a heading\n| x |\n```\n")["heading levels"] == []
+
+
+def test_structure_detects_missing_heading():
+    errors = v.check_structure_pair("a.md", DOC_EN, DOC_FR.replace("## Partie\n\n", ""))
+    assert any("heading levels" in e for e in errors)
+
+
+def test_structure_detects_heading_level_change():
+    errors = v.check_structure_pair("a.md", DOC_EN, DOC_FR.replace("## Partie", "### Partie"))
+    assert any("heading levels" in e for e in errors)
+
+
+def test_structure_detects_missing_table():
+    no_table = DOC_FR.replace("| a | b |\n|---|---|\n| 1 | 2 |\n\n", "")
+    assert any("tables" in e for e in v.check_structure_pair("a.md", DOC_EN, no_table))
+
+
+def test_structure_detects_table_row_or_column_difference():
+    extra_row = DOC_FR.replace("| 1 | 2 |\n", "| 1 | 2 |\n| 3 | 4 |\n")
+    extra_col = DOC_FR.replace("| a | b |\n|---|---|\n| 1 | 2 |", "| a | b | c |\n|---|---|---|\n| 1 | 2 | 3 |")
+    assert any("tables" in e for e in v.check_structure_pair("a.md", DOC_EN, extra_row))
+    assert any("tables" in e for e in v.check_structure_pair("a.md", DOC_EN, extra_col))
+
+
+def test_structure_detects_missing_code_block():
+    no_code = DOC_FR.replace("```\ncode\n```\n", "")
+    assert any("code blocks" in e for e in v.check_structure_pair("a.md", DOC_EN, no_code))
+
+
+def test_structure_mismatch_reported_by_directory_check(tmp_path):
+    (tmp_path / "a.md").write_text(DOC_EN)
+    (tmp_path / "a_FR.md").write_text(DOC_FR.replace("## Partie\n\n", ""))
+    assert any("heading levels" in e for e in v.check_bilingual_docs(tmp_path))
