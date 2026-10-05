@@ -1,6 +1,6 @@
 # Working agreements for Claude Code in this repository
 
-Governed AI reference platform. Owner: Thierry Sayegh-Sauvage. Private, proprietary (`NOTICE.md`).
+Governed AI reference platform. Owner: Thierry Sayegh-Sauvage. Public repository, all rights reserved, no licence granted (`NOTICE.md`, ADR 0004). Never present drafts as approved policy or legal advice.
 
 ## Source of truth
 - `registry/*.yaml` and `policies/*.rego`. Governance documents in `docs/governance/` define intent; policies enforce it.
