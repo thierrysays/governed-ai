@@ -220,3 +220,11 @@ def test_github_templates_are_exempt_from_parity(tmp_path):
     (tmp_path / ".github").mkdir()
     (tmp_path / ".github" / "pull_request_template.md").write_text("one file")
     assert v.check_bilingual_docs(tmp_path) == []
+
+
+def test_evaluation_ref_must_point_to_an_existing_file(tmp_path):
+    model = {**OK_MODEL, "evaluation_ref": "evals/missing.md"}
+    assert any("does not exist" in e for e in v.check_models([model], tmp_path))
+    (tmp_path / "evals").mkdir()
+    (tmp_path / "evals" / "missing.md").write_text("report")
+    assert v.check_models([model], tmp_path) == []

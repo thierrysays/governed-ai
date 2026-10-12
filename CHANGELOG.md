@@ -2,6 +2,10 @@
 
 French version: `CHANGELOG_FR.md`.
 
+## 0.7.0
+
+- Instruction file for the internal assistant (`internal-assistant-dossier.md`, EN/FR): status of the six approval conditions (none fully met), decisions awaited from the owner, data protection screening questions for the DPO, qualitative risk register, vendor-neutral model admission criteria, evaluation protocol, draft notice to users, next steps. No person, model, threshold or legal citation is invented. `make validate` now checks that a model's `evaluation_ref` points to an existing file.
+
 ## 0.6.5
 
 - `SECURITY` (EN/FR) now names conduct@glossolalie.pro, the only address in service, instead of security@glossolalie.pro. A separate security address stays an open point (open question 8).

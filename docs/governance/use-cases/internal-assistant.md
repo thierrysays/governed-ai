@@ -1,6 +1,6 @@
 # Use case 1: internal assistant
 
-Status: under assessment. Registry identifier: `internal-assistant` (status `candidate`). Classification decision: ADR 0003.
+Status: under assessment. Registry identifier: `internal-assistant` (status `candidate`). Classification decision: ADR 0003. Instruction file: `internal-assistant-dossier.md`.
 
 ## Purpose
 Help employees with drafting, summarising and searching internal documentation. The assistant neither takes nor recommends any individual decision about a person.
